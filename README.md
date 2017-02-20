@@ -60,7 +60,7 @@ WebStorm has, so web development is possible in IntelliJ.
 
 Open up IntelliJ and clone your fork of this repository from GitHub. When prompted if you would like create an IntelliJ project for the sources you've checked out, **select yes**.
 
-Then, select **import project from existing model** and select **Gradle**. Make sure **Use default graddle wrapper** is selected on the next screen, and click **Finish**.
+Then, select **import project from existing model** and select **Gradle**. Make sure **Use default gradle wrapper** is selected on the next screen, and click **Finish**.
 
 You'll also want the JSONView extension for either Firefox or Chrome installed. This will make JSON in the browser look pretty and actually be readable.
 
