@@ -7,6 +7,10 @@ Responses to questions should be submitted as specified by your instructor.
 
 If you're ever confused about what you need to do for a given task, ask.
 
+Before completing these lab tasks, make sure you have read through
+README.md and have created the run configuration and set up
+your repository with TravisCI.
+
 ## Exploring the project
 
 Look over the directory structure of the project before you start
@@ -21,7 +25,7 @@ sure you understand the purpose of Travis.
 
 ## Exploring the server
 
-Study the server (Java) code in project you have cloned.
+Study the server (Java) code in the project you have cloned.
 Run it according to the instructions in the
 [README](./README.md), including running the JUnit tests. Answer
 the following questions.
