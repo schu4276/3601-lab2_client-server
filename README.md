@@ -1,6 +1,6 @@
 # CSCI 3601 Lab #2 - JavaScript and Spark Lab
 
-[![Build Status](https://travis-ci.org/UMM-CSci-3601/3601-lab2_client-server.svg?branch=spark-trial)](https://travis-ci.org/UMM-CSci-3601/3601-lab2_client-server)
+[![Build Status](https://travis-ci.org/UMM-CSci-3601/3601-lab2_client-server.svg?branch=master)](https://travis-ci.org/UMM-CSci-3601/3601-lab2_client-server)
 
 During this lab, you will explore serving up a simple website that you create, using a [Spark][spark] server. Spark is a micro framework for creating web applications in Java. You will be using Spark to create the back-end of your website.
 
@@ -53,10 +53,10 @@ The details of both of these components are in [LABTASKS.md](./LABTASKS.md).
 
 ## Setup
 
-We will be using [IntelliJ][intellij] for the rest of the course. It's made
+We will be using [IntelliJ IDEA][intellij-idea] for the rest of the course. It's made
 by the same company that made WebStorm, but provides powerful support for
 Java projects (not unlike Eclipse) as well as including basically everything
-WebStorm has, so web development is possible in IntelliJ.
+WebStorm has, so web development is possible in IntelliJ IDEA.
 
 Open up IntelliJ and clone your fork of this repository from GitHub. When prompted if you would like create an IntelliJ project for the sources you've checked out, **select yes**.
 
@@ -130,7 +130,7 @@ a student.
 We've done the hard part of setting up the [.travis.yml][travis-yml] file. You can look at it by clicking the previous link or read about setting up a Java Gradle project with Travis by [clicking here][travis-java].
 
 What you need to do:
-- Sign into Travis CI with your GitHub account.
+- Sign into [Travis CI][travis] with your GitHub account.
 
 > Protip: We'd recommend having everyone in your group do this.
 
@@ -153,7 +153,7 @@ repository.
   - Select "Master" for the Branch.
   - Select "Markdown" for the drop-down.
   - Copy the markdown it provides.
-  - Update the README.md file to swap out the build status image at the top with your own.
+  - Update this README.md file to swap out the build status image at the top with your own.
 
 Your own forked project is now ready for the magic of continuous integration!
 
@@ -180,7 +180,7 @@ Then, run tasks like:
 - [Introduction to Jasmine testing][jasmine-introduction]
 
 [gradle]: https://gradle.org/
-[intellij]: https://www.jetbrains.com/idea/
+[intellij-idea]: https://www.jetbrains.com/idea/
 [jasmine]: https://jasmine.github.io/
 [jasmine-introduction]: http://jasmine.github.io/2.0/introduction.html
 [jsonview-chrome]: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en
