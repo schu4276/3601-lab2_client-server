@@ -5,6 +5,7 @@ build/
 
 ### IntelliJ / Webstorm ###
 .idea/
+3601-lab2_client-server.iml
 
 ### Node (karma plugin utilizes it) ###
 node_modules/
