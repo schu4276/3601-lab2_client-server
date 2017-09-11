@@ -13,6 +13,13 @@
 
     <div id="jsonDump" style="margin-top:20px"> Json will go here </div>
 
+    <script>
+      window.onload = function() {
+        console.log("The page is loaded now!");
 
+        var element = document.getElementById('getAll');
+        element.addEventListener("click", getAllUsers, true);
+      }
+    </script>
 </body>
 </html>

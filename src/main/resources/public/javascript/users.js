@@ -1,30 +1,19 @@
-/**
- * We use this to make sure we're not trying to do stuff with the
- * elements on the page before the page is even loaded.
- *
- * The use of window.onload is slightly controversial these days, so
- * feel free to google around and replace this with a more
- * up-to-date solution if you think that would be interesting.
- */
-window.onload = function() {
-    console.log("The page is loaded now!");
-
-    var element = document.getElementById('getAll');
-    element.addEventListener("click", getAllUsers, true);
-}
-
+// Why do we use the `var getAllUsers = function()` syntax
+// for the first definition, and the named function syntax
+// for the second definition?
 
 /**
  * Function to get all the users!
  */
 var getAllUsers = function() {
+    console.log("Getting all the users.");
+
     var HttpThingy = new HttpClient();
     HttpThingy.get("/api/users", function(returned_json){
         document.getElementById('jsonDump').innerHTML = returned_json;
     });
-}
+};
 
- 
 /**
  * Wrapper to make generating http requests easier. Should maybe be moved
  * somewhere else in the future!.
@@ -49,9 +38,9 @@ function HttpClient() {
              *  for XMLHttpRequest ready state documentation.
              *
              */
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+            if (anHttpRequest.readyState === 4 && anHttpRequest.status === 200)
                 aCallback(anHttpRequest.responseText);
-        }
+        };
 
         anHttpRequest.open("GET", aUrl, true);
         anHttpRequest.send(null);
