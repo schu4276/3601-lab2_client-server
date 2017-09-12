@@ -190,14 +190,7 @@ Your own forked project is now ready for the magic of continuous integration!
 
 ##### Running in the command line
 
-We include a Gradle wrapper which lets you run gradle tasks from the command line. First, make the wrapper
-executable:
-
-```
-chmod +x gradlew
-```
-
-Then, run tasks like:
+We include a Gradle wrapper which lets you run gradle tasks from the command line. So, you can run tasks like:
 
 ```
 ./gradlew test
