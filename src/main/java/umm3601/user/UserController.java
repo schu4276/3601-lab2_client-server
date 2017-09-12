@@ -24,12 +24,11 @@ public class UserController {
    * stores that internally so that (subsets of) users can be returned
    * in response to requests.
    *
-   * @throws IOException if we can't open or read the user data file
-   * @param userDataFile the name of the file with the user data in JSON format
+   * @param database the database containing user data
    */
-  public UserController(String userDataFile) throws IOException {
+  public UserController(Database database) {
     gson = new Gson();
-    database = new Database(userDataFile);
+    this.database = database;
   }
 
   /**
