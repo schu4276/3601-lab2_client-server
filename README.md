@@ -171,9 +171,6 @@ there
 
 At this point, make some change to your forked project and add those changes to GitHub (It doesn't really matter what you do, this is needed to trigger a Travis build).
 
-:bangbang: Don't they have to edit the badge link so it points to
-_their_ project?
-
 After you committed and pushed those changes, you'll want to update
 the Travis-CI badge link (at the top of this document) so it points
 to _your_ project. (Otherwise it will always show you the status of
