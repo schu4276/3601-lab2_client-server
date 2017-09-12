@@ -3,6 +3,7 @@ package umm3601;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
+import umm3601.user.Database;
 import umm3601.user.UserController;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ import static spark.debug.DebugScreen.*;
 public class Server {
 
   public static final String USER_DATA_FILE = "src/main/data/users.json";
+  private static Database userDatabase;
 
   public static void main(String[] args) {
 
@@ -53,17 +55,22 @@ public class Server {
     after("*", addGzipHeader);
   }
 
-  /*
+  /***
+   * Create a database using the json fie, use it as
+   * data source for a new UserController
+   *
    * Constructing the controller might throw an IOException if
    * there are problems reading from the JSON "database" file.
    * If that happens we'll print out an error message and shut
    * the server down.
+   * @throws IOException if we can't open or read the user data file
    */
   private static UserController buildUserController() {
     UserController userController = null;
 
     try {
-      userController = new UserController(USER_DATA_FILE);
+      userDatabase = new Database(USER_DATA_FILE);
+      userController = new UserController(userDatabase);
     } catch (IOException e) {
       System.err.println("The server failed to load the user data; shutting down.");
       e.printStackTrace(System.err);
