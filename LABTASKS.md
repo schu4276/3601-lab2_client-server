@@ -1,6 +1,7 @@
 # Lab Tasks
 
 - Questions that you need to answer (as a group!) are indicated with question mark symbols (:question:).
+- The Question section is at the end of this document
 - Tasks that specify work to do without a written response will be bulleted.
 
 Responses to questions should be submitted as specified by your instructor.
@@ -17,7 +18,7 @@ Look over the directory structure of the project before you start
 making changes to it, and consider the various tools that we are
 using to manage our project.
 
-:question: What is the purpose of `.gitignore`?
+:question: Answer question *1* [QUESTIONS](./LABTASKS.md#questions)
 
 Make sure you understand what role Gradle is playing in the
 project, and what the purpose of `build.gradle` is. Also make
@@ -32,16 +33,7 @@ the following questions.
 
 > Protip: Using Google to gain additional knowledge or support your conjectures about how something works is great! It's important that you think about everything and come to an understanding, though, so don't use Google as a scapegoat to get the questions done quickly or you will regret it!
 
-:question: Explain what a _route_ is.
-
-:question: What is the purpose of `umm3601.Server` class?
-What is the purpose of the `umm3601.user.UserController` class?
-Explain what happens when a user accesses each of the
-following URLs:
-- :question: The page `users`
-- :question: The page `api/users`
-- :question: The page `api/users?age=25`
-- :question: The page `api/users/588935f5de613130e931ffd5`
+:question: Answer question *2* and *3* [QUESTIONS](./LABTASKS.md#questions)
 
 Look at the tests in `src/test/java/umm3601.user` as they can
 provide useful information about the intention of various
@@ -52,11 +44,6 @@ good to deliberately modify some of the tests and see what
 happens when they break. (But make sure you restore them to
 their passing state when you're done.)
 
-:question: What happens when the user accesses the page
-"kittens"? Modify the server code so accessing the page
-"kittens" results in the text "Meow". Describe what you
-did and how it worked.
-
 ## Exploring the client
 
 The client resources are in `src/main/resources/public`, which
@@ -64,14 +51,31 @@ contains the necessary HTML, CSS, and JavaScript files to
 construct the client-side web app. To simplify things below
 we'll just refer to this as the `public` folder.
 
-:question: What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
+:question: Answer question *4* and *5* and *6* [QUESTIONS](./LABTASKS.md#questions)
 
-:question: Describe what happens when you filter users by
+##Questions
+
+:question: *1* What is the purpose of `.gitignore`?
+
+:question: *2* Explain what a _route_ is.
+
+:question: *3* What is the purpose of `umm3601.Server` class?
+What is the purpose of the `umm3601.user.UserController` class?
+Explain what happens when a user accesses each of the
+following URLs:
+- :question: The page `users`
+- :question: The page `api/users`
+- :question: The page `api/users?age=25`
+- :question: The page `api/users/588935f5de613130e931ffd5`
+
+:question: *4* What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
+
+:question: *5* Describe what happens when you filter users by
 age in the client? What is read from the web page, and what
 request is sent to the server? What is received, and how/where
 is it displayed?
 
-:question: Where is the client-side JavaScript defined? Name the file(s) in which it is used.
+:question: *6* Where is the client-side JavaScript defined? Name the file(s) in which it is used.
 
 ## Use ZenHub to support Agile development
 
