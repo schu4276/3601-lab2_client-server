@@ -76,7 +76,7 @@ The details of both of these components are in [LABTASKS.md](./LABTASKS.md).
 Open up [IntelliJ IDEA][intellij-idea] and clone your Github classroom
 fork of this repository from GitHub. When prompted if you would like create an IntelliJ project for the sources you've checked out, **select yes**.
 
-Then, select **import project from existing model** and select **Gradle**. Make sure **Use default gradle wrapper** is selected on the next screen, and click **Finish**.
+Then, select **import project from existing model** and select **Gradle**. Make sure **Use default gradle wrapper** is selected on the next screen, and click **OK**.
 
 You'll also want the JSONView extension for either Firefox or Chrome installed. This will make JSON in the browser look pretty and actually be readable.
 
