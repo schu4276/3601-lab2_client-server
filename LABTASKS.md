@@ -8,7 +8,7 @@ Responses to questions should be submitted as specified by your instructor.
 If you're ever confused about what you need to do for a given task, ask.
 
 Before completing these lab tasks, make sure you have read through
-README.md and have created the run configuration and set up
+[`README.md`](./README.md) and have created the run configuration and set up
 your repository with TravisCI.
 
 ## Exploring the project
@@ -19,9 +19,10 @@ using to manage our project.
 
 :question: What is the purpose of `.gitignore`?
 
-Make sure you understand what role Gradle is playing in the
-project, and what the purpose of `build.gradle` is. Also make
-sure you understand the purpose of Travis.
+:question: What role is Gradle playing in the
+project, and what is the purpose of `build.gradle`?
+
+:question: What is the purpose of Travis-CI?
 
 ## Exploring the server
 
@@ -45,23 +46,25 @@ following URLs:
 
 Look at the tests in `src/test/java/umm3601.user` as they can
 provide useful information about the intention of various
-functions in the `UserController` class, and thus `Server`.
+functions called by `Server` via the `UserController` class.
 
 You should make sure you run the JUnit tests, and it would be
 good to deliberately modify some of the tests and see what
 happens when they break. (But make sure you restore them to
 their passing state when you're done.)
 
-:question: What happens when the user accesses the page
-"kittens"? Modify the server code so accessing the page
-"kittens" results in the text "Meow". Describe what you
-did and how it worked.
+:warning: One thing we've discovered as we've learned more about
+Spark is that it's fairly complicated to test controller functions that 
+take a `Request` and `Response` object, update the `Response` and return
+a `JsonObject` (like `UserController.getUser`). So at the moment we
+have solid testing of `User` and `Database`, but no direct testing 
+of `UserController`. We'll report back as we figure more out.
 
 ## Exploring the client
 
 The client resources are in `src/main/resources/public`, which
 contains the necessary HTML, CSS, and JavaScript files to
-construct the client-side web app. To simplify things below
+construct the _very_ simple client-side web app. To simplify things below
 we'll just refer to this as the `public` folder.
 
 :question: What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
