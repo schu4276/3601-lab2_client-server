@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-    <script type="text/javascript" src="javascript/users.js"> </script>
+  <meta charset="UTF-8">
+  <title>Users</title>
+  <script type="text/javascript" src="javascript/users.js"> </script>
 </head>
 <body>
 
-    <button type="button" id="getAll">Get All Users</button>
+  <button type="button" id="getAll">Get All Users</button>
 
-    <hr/>
+  <hr/>
 
-    <div id="jsonDump" style="margin-top:20px"> Json will go here </div>
+  <div id="jsonDump" style="margin-top:20px"> Json will go here </div>
 
-    <script>
-      window.onload = function() {
-        console.log("The page is loaded now!");
+  <script>
+    window.onload = function() {
+      console.log("The page is loaded now!");
 
-        var element = document.getElementById('getAll');
-        element.addEventListener("click", getAllUsers, true);
-      }
-    </script>
+      var element = document.getElementById('getAll');
+      element.addEventListener("click", getAllUsers, true);
+    }
+  </script>
 </body>
 </html>
