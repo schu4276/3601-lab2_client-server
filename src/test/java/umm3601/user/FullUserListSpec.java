@@ -1,8 +1,6 @@
 package umm3601.user;
 
 import org.junit.Test;
-import umm3601.user.User;
-import umm3601.user.UserController;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,14 +11,14 @@ public class FullUserListSpec {
 
     @Test
     public void totalUserCount() throws IOException {
-        UserController userController = new UserController();
+        UserController userController = new UserController("src/main/data/users.json");
         User[] allUsers = userController.listUsers(new HashMap<>());
         assertEquals("Incorrect total number of users", 10, allUsers.length);
     }
 
     @Test
     public void firstUserInFullList() throws IOException {
-        UserController userController = new UserController();
+        UserController userController = new UserController("src/main/data/users.json");
         User[] allUsers = userController.listUsers(new HashMap<>());
         User firstUser = allUsers[0];
         assertEquals("Incorrect name", "Connie Stewart", firstUser.name);

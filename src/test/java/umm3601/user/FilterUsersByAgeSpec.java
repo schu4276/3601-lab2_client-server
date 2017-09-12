@@ -12,7 +12,7 @@ public class FilterUsersByAgeSpec {
 
     @Test
     public void filterUsersByAge() throws IOException {
-        UserController userController = new UserController();
+        UserController userController = new UserController("src/main/data/users.json");
         User[] allUsers = userController.listUsers(new HashMap<>());
         User[] age27Users = userController.filterUsersByAge(allUsers, 27);
         assertEquals("Incorrect number of users with age 27", 3, age27Users.length);
@@ -22,7 +22,7 @@ public class FilterUsersByAgeSpec {
 
     @Test
     public void listUsersWithAgeFilter() throws IOException {
-        UserController userController = new UserController();
+        UserController userController = new UserController("src/main/data/users.json");
         Map<String, String[]> queryParams = new HashMap<>();
         queryParams.put("age", new String[] {"27"});
         User[] age27Users = userController.listUsers(queryParams);
