@@ -7,19 +7,19 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
-public class FullUserListSpec {
+public class FullUserListFromDB {
 
     @Test
     public void totalUserCount() throws IOException {
-        UserController userController = new UserController("src/main/data/users.json");
-        User[] allUsers = userController.listUsers(new HashMap<>());
+        Database db = new Database("src/main/data/users.json");
+        User[] allUsers = db.listUsers(new HashMap<>());
         assertEquals("Incorrect total number of users", 10, allUsers.length);
     }
 
     @Test
     public void firstUserInFullList() throws IOException {
-        UserController userController = new UserController("src/main/data/users.json");
-        User[] allUsers = userController.listUsers(new HashMap<>());
+      Database db = new Database("src/main/data/users.json");
+        User[] allUsers = db.listUsers(new HashMap<>());
         User firstUser = allUsers[0];
         assertEquals("Incorrect name", "Connie Stewart", firstUser.name);
         assertEquals("Incorrect age", 25, firstUser.age);

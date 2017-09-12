@@ -1,65 +1,56 @@
 package umm3601;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import spark.Filter;
 import spark.Request;
 import spark.Response;
-import umm3601.user.User;
 import umm3601.user.UserController;
 
 import java.io.IOException;
 
 import static spark.Spark.*;
+import static spark.debug.DebugScreen.*;
 
 public class Server {
 
   public static final String USER_DATA_FILE = "src/main/data/users.json";
 
   public static void main(String[] args) {
-    Server server = new Server();
 
+    // Initialize dependencies
+    UserController userController = buildUserController();
+
+    // Configure Spark
+    port(4567);
+    // Specify where assets like images will be "stored"
     staticFiles.location("/public");
-
-    Gson gson = new Gson();
-
-    final UserController userController = buildUserController();
+    enableDebugScreen();
 
     // Simple example route
     get("/hello", (req, res) -> "Hello World");
 
-    // Redirects for the "home" page
-    redirect.get("", "/");
-    redirect.get("/", "/index.html");
-
-    // Redirect for the "about" page
+    // Redirects to create simpler URLs
     redirect.get("/about", "/about.html");
-
-    // Redirect for the Users Form
     redirect.get("/users", "/users.html");
 
-    // List users
-    get("api/users", (req, res) -> {
-      res.type("application/json");
-      return wrapInJson("users", gson.toJsonTree(userController.listUsers(req.queryMap().toMap())));
+    // API endpoints
+
+    // Get specific user
+    get("api/users/:id", userController::getUser);
+    // List users, filtered using query parameters
+    get("api/users", userController::getUsers);
+
+    // An example of throwing an unhandled exception so you can see how the
+    // Java Spark debugger displays errors like this.
+    get("api/error", (req, res) -> {
+      throw new RuntimeException("A demonstration error");
     });
 
-    // See specific user
-    get("api/users/:id", (req, res) -> {
-      return getUser(gson, userController, req, res);
-    });
-  }
-
-  private static Object getUser(Gson gson, UserController userController, Request req, Response res) {
-    res.type("application/json");
-    String id = req.params("id");
-    User user = userController.getUser(id);
-    if (user != null) {
-      return gson.toJson(userController.getUser(id));
-    } else {
-      res.type("application/json");
-      return "{\"message\":\"User not found: User with ID " + id + " wasn't found.\"}";
-    }
+    // Called after each request to insert the GZIP header into the response.
+    // This causes the response to be compressed _if_ the client specified
+    // in their request that they can accept compressed responses.
+    // There's a similar "before" method that can be used to modify requests
+    // before they they're processed by things like `get`.
+    after("*", addGzipHeader);
   }
 
   /*
@@ -85,10 +76,9 @@ public class Server {
     return userController;
   }
 
-  private static JsonObject wrapInJson(String name, JsonElement jsonElement) {
-    JsonObject result = new JsonObject();
-    result.add(name, jsonElement);
-    return result;
-  }
+  // Enable GZIP for all responses
+  private static Filter addGzipHeader = (Request request, Response response) -> {
+    response.header("Content-Encoding", "gzip");
+  };
 
 }
