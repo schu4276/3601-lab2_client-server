@@ -14,6 +14,15 @@ function getAllUsers() {
   });
 }
 
+function getAllUsersByAge() {
+  console.log("Getting all the users.");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("/api/users?age=" +  document.getElementById("age").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
 /**
  * Wrapper to make generating http requests easier. Should maybe be moved
  * somewhere else in the future!.
