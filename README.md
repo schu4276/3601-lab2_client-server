@@ -109,7 +109,7 @@ To run your server-side tests, let's practice creating an IntelliJ run configura
 - Name: "Run Server Tests"
 - Gradle project: Click on the folder with the blue square icon and choose your project from the dropdown.
 - Tasks: test
-- Script parameters: `-x karmaRun`
+- Arguments: `-x karmaRun`
 
 Then, you can run it by selecting the run configuration
 `Run -> Run... -> Run Server Tests`. The `-x karmaRun` script
