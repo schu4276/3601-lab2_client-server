@@ -204,6 +204,7 @@ We include a Gradle wrapper which lets you run gradle tasks from the command lin
 - [Example of a nicely structured, more complex Spark project][spark-structure]
 - [JSend "standard" for JSON responses][jsend]
 - [Best practices for REST interface design][rest-best-practices]
+- [HTTP Status Codes][status-codes]
 
 [gradle]: https://gradle.org/
 [intellij-idea]: https://www.jetbrains.com/idea/
@@ -224,3 +225,4 @@ We include a Gradle wrapper which lets you run gradle tasks from the command lin
 [travis]: https://travis-ci.org/
 [travis-java]: https://docs.travis-ci.com/user/languages/java/
 [travis-yml]: .travis.yml
+[status-codes]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
