@@ -33,7 +33,7 @@ public class FilterUsersByAgeFromDB {
 
         queryParams.put("age", new String[] {"27"});
         User[] age27Users = db.listUsers(queryParams);
-        assertEquals("Incorrect number of users with age 27", 3, age27Users.length);
+        assertEquals("Incorrect number of users with age 27", 30, age27Users.length);
 
         queryParams.put("age", new String[] {"33"});
         User[] age33Users = db.listUsers(queryParams);
