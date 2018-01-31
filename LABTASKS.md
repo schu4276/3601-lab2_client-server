@@ -232,7 +232,8 @@ API easier.
 > Make sure you create these files in the right locations! ;)
 
 * Use basic HTML form elements and javascript to create a simple
-interface for making requests to your API. Along with the basic form field demonstrated by the user example, you should try to make use of things like dropdowns and radio buttons where appropriate. 
+interface for making requests to your API. Along with the basic form field demonstrated by the user example, you should try to make use of things like dropdowns and radio buttons where appropriate. This link should provide some useful information. 
+https://www.w3schools.com/html/html_forms.asp
 
 > You don't have to worry about actually using the returned JSON,
 just dumping it onto the web page (like in the 'users' example) is fine.
