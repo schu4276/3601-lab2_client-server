@@ -204,7 +204,7 @@ generated "to-do"s, each of which has:
 * A `category`
 
 At the very least (necessary to get 85% of this part of the lab)
-you should implement the following API endpoints:
+you should implement (and create meaningful tests for) the following API endpoints:
 * `api/todos`, which returns all the to-dos
 * `api/todos/:id`, which returns the to-do with the specified ID
 * `api/todos?limit=7`, which lets you specify that maximum
@@ -217,7 +217,7 @@ whose _bodies_ contain (anywhere) the given string (in this
 case "banana")
 
 To get full (100%) credit on this part of the lab you should
-implement the additional endpoints:
+implement (and create meaningful tests for) the additional endpoints:
 * `api/todos?owner=Blanche`, which returns just the to-dos
 owned by Blanche
 * `api/todos?category=groceries`, which returns just the to-dos
