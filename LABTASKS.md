@@ -171,6 +171,22 @@ Once the story passes review, you should
 * Merge the associated feature branch into master by accepting the (perhaps modified) pull request
 * Move the story to the Done or Closed track as you see fit
 
+### Try to slice the cake
+
+:warning: Our descriptions below tend to treat the server modifications
+as separate from the client updates. This is generally _not_ how you'd
+want to write stories, as you want your stories to slice all the way
+through the cake, from the UI through to the server (and possibly database,
+etc.) and back to the UI.
+
+So when you create and estimates stories for your ZenHub board, try to
+make them so they also slice the cake. So where we require below that
+you provide `api/todos` as a server-side endpoint that returns all the
+To-Dos in the system, you would want a story that includes a UI element
+(e.g., a "Get all To-Dos" button) that makes the appropriate call to the
+server, and the server-side functionality that supports that end-point,
+and any necessary functionality on the client-side to handle the response.
+
 ## Extending the server API
 
 The initial server (Java) code demonstrates reading in a
