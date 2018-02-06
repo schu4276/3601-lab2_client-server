@@ -73,7 +73,13 @@ The details of both of these components are in [LABTASKS.md](./LABTASKS.md).
 
 ## Setup
 
-Open up [IntelliJ IDEA][intellij-idea] and clone your Github classroom
+Open up [IntelliJ IDEA][intellij-idea] and make sure that Java is set up correctly
+* From the welcome screen of IntelliJ, in the lower right corner-ish area, click on Configure.
+* Choose "Project Defaults"
+* Choose "Project Structure"
+* In the Project SDK section, there is a dropdown menu for the SDK to select. If there is no SDK, it will say so in red "<No SDK>". There is a button to the right of that that says "New...". Click that button. In our lab, you can find Java in /usr/lib/jvm/java
+
+Clone your Github classroom
 fork of this repository from GitHub. When prompted if you would like create an IntelliJ project for the sources you've checked out, **select yes**.
 
 Then, select **import project from existing model** and select **Gradle**. Make sure **Use default gradle wrapper** is selected on the next screen, and click **OK**.
