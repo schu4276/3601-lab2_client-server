@@ -18,12 +18,7 @@ Look over the directory structure of the project before you start
 making changes to it, and consider the various tools that we are
 using to manage our project.
 
-:question: Answer question *1* [QUESTIONS](./LABTASKS.md#questions)
-
-:question: What role is Gradle playing in the
-project, and what is the purpose of `build.gradle`?
-
-:question: What is the purpose of Travis-CI?
+:question: Answer questions *1*, *2*, and *3* [QUESTIONS](./LABTASKS.md#questions)
 
 ## Exploring the server
 
@@ -34,7 +29,7 @@ the following questions.
 
 > Protip: Using Google to gain additional knowledge or support your conjectures about how something works is great! It's important that you think about everything and come to an understanding, though, so don't use Google as a scapegoat to get the questions done quickly or you will regret it!
 
-:question: Answer question *2* and *3* [QUESTIONS](./LABTASKS.md#questions)
+:question: Answer questions *4* and *5* [QUESTIONS](./LABTASKS.md#questions)
 
 Look at the tests in `src/test/java/umm3601.user` as they can
 provide useful information about the intention of various
@@ -59,15 +54,20 @@ contains the necessary HTML, CSS, and JavaScript files to
 construct the _very_ simple client-side web app. To simplify things below
 we'll just refer to this as the `public` folder.
 
-:question: Answer question *4* and *5* and *6* [QUESTIONS](./LABTASKS.md#questions)
+:question: Answer questions *6* and *7* and *8* [QUESTIONS](./LABTASKS.md#questions)
 
 ## Questions
 
 :question: *1* What is the purpose of `.gitignore`?
 
-:question: *2* Explain what a _route_ is.
+:question: *2* What role is Gradle playing in the
+project, and what is the purpose of `build.gradle`?
 
-:question: *3* What is the purpose of `umm3601.Server` class?
+:question: *3* What is the purpose of Travis-CI?
+
+:question: *4* Explain what a _route_ is.
+
+:question: *5* What is the purpose of `umm3601.Server` class?
 What is the purpose of the `umm3601.user.UserController` class?
 Explain what happens when a user accesses each of the
 following URLs:
@@ -76,14 +76,14 @@ following URLs:
 - :question: The page `api/users?age=25`
 - :question: The page `api/users/588935f5de613130e931ffd5`
 
-:question: *4* What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
+:question: *6* What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
 
-:question: *5* Describe what happens when you filter users by
+:question: *7* Describe what happens when you filter users by
 age in the client? What is read from the web page, and what
 request is sent to the server? What is received, and how/where
 is it displayed?
 
-:question: *6* Where is the client-side JavaScript defined? Name the file(s) in which it is used.
+:question: *8* Where is the client-side JavaScript defined? Name the file(s) in which it is used.
 
 ## Use ZenHub to support Agile development
 
