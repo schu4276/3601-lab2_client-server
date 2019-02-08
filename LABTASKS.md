@@ -40,12 +40,12 @@ good to deliberately modify some of the tests and see what
 happens when they break. (But make sure you restore them to
 their passing state when you're done.)
 
-:warning: One thing we've discovered as we've learned more about
-Spark is that it's fairly complicated to test controller functions that 
+:warning: It's fairly complicated to test Java Spark 
+controller functions that 
 take a `Request` and `Response` object, update the `Response` and return
 a `JsonObject` (like `UserController.getUser`). So at the moment we
 have solid testing of `User` and `Database`, but no direct testing 
-of `UserController`. We'll report back as we figure more out.
+of `UserController`.
 
 ## Exploring the client
 
@@ -55,35 +55,6 @@ construct the _very_ simple client-side web app. To simplify things below
 we'll just refer to this as the `public` folder.
 
 :question: Answer questions *6* and *7* and *8* [QUESTIONS](./LABTASKS.md#questions)
-
-## Questions
-
-:question: *1* What is the purpose of `.gitignore`?
-
-:question: *2* What role is Gradle playing in the
-project, and what is the purpose of `build.gradle`?
-
-:question: *3* What is the purpose of Travis-CI?
-
-:question: *4* Explain what a _route_ is.
-
-:question: *5* What is the purpose of `umm3601.Server` class?
-What is the purpose of the `umm3601.user.UserController` class?
-Explain what happens when a user accesses each of the
-following URLs:
-- :question: The page `users`
-- :question: The page `api/users`
-- :question: The page `api/users?age=25`
-- :question: The page `api/users/588935f5de613130e931ffd5`
-
-:question: *6* What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
-
-:question: *7* Describe what happens when you filter users by
-age in the client? What is read from the web page, and what
-request is sent to the server? What is received, and how/where
-is it displayed?
-
-:question: *8* Where is the client-side JavaScript defined? Name the file(s) in which it is used.
 
 ## Use ZenHub to support Agile development
 
@@ -256,4 +227,51 @@ should provide some useful information:
 
 > You don't have to worry about actually using the returned JSON,
 just dumping it onto the web page (like in the 'users' example) is fine.
+
+---
+
+## Questions
+
+> Write up your answers to these questions in the `ANSWERS.md` file,
+  making sure to commit and push those changes so we will be able to
+  see them.
+  
+:bangbang: Make sure that your answers address the _purpose_ of
+these tools. Don't just tell us _what_ something does, indicate
+_why_ we'd want to have it.
+
+:question: *1* What is the purpose of `.gitignore`?
+
+:question: *2* What role is Gradle playing in the
+project, and what is the purpose of `build.gradle`?
+
+:question: *3* What is the purpose of Travis-CI?
+
+:question: *4* Explain what a _route_ is.
+
+:question: *5* What is the purpose of `umm3601.Server` class?
+What is the purpose of the `umm3601.user.UserController` class?
+Explain what happens when a user accesses each of the
+following URLs:
+
+- :question: The page `users`
+   - <http://localhost:4567/users>
+- :question: The page `api/users`
+   - <http://localhost:4567/api/users>
+- :question: The page `api/users?age=25`
+   - <http://localhost:4567/api/users?age=25>
+- :question: The page `api/users/588935f5de613130e931ffd5`
+   - <http://localhost:4567/api/users/588935f5de613130e931ffd5>
+
+:bangbang: If you have your project running (see the README), these links should
+actually work and generate results from your server.
+
+:question: *6* What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
+
+:question: *7* Describe what happens when you filter users by
+age in the client? What is read from the web page, and what
+request is sent to the server? What is received, and how/where
+is it displayed?
+
+:question: *8* Where is the client-side JavaScript defined? Name the file(s) in which it is used.
 
