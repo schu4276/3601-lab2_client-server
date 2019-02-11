@@ -19,8 +19,7 @@ dependencies {
   testCompile 'junit:junit:4.12'
 }
 
-task runWithTests {
+task runServerTests {
   group = "application"
 }
-
-runWithTests.dependsOn test
+runServerTests.dependsOn test
