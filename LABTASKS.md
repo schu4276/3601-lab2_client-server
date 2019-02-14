@@ -187,7 +187,7 @@ generated "to-do"s, each of which has:
 * A `category`
 
 Below are the various features we'd like to see you implement in this lab. You should 
-create an epic for each of the features listed above, adding at least two issues
+create an epic for each of the features listed below, adding at least two issues
 to each epic, one for the server-side functionality and one for the client-side support.
                                                                            
 At the very least (necessary to get 85% of this part of the lab)
