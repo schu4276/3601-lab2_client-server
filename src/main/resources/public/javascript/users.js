@@ -1,7 +1,3 @@
-// Why do we use the `var getAllUsers = function()` syntax
-// for the first definition, and the named function syntax
-// for the second definition?
-
 /**
  * Function to get all the users!
  */
