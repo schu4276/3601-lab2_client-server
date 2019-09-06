@@ -9,7 +9,6 @@ import umm3601.user.UserController;
 import java.io.IOException;
 
 import static spark.Spark.*;
-import static spark.debug.DebugScreen.*;
 
 public class Server {
 
@@ -25,7 +24,6 @@ public class Server {
     port(4567);
     // Specify where assets like images will be "stored"
     staticFiles.location("/public");
-    enableDebugScreen();
 
     // Simple example route
     get("/hello", (req, res) -> "Hello World");
