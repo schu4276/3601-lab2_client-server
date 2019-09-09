@@ -6,7 +6,7 @@
  *
  * Based on: http://stackoverflow.com/a/22076667
  */
-export function get(aUrl, aCallback) {
+function get(aUrl, aCallback) {
   var anHttpRequest = new XMLHttpRequest();
 
   // Set a callback to be called when the ready state of our request changes.
