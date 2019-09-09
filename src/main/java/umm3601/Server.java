@@ -12,6 +12,7 @@ import static spark.Spark.*;
 
 public class Server {
 
+  public static final String CLIENT_DIRECTORY = "client";
   public static final String USER_DATA_FILE = "src/main/data/users.json";
   private static Database userDatabase;
 
@@ -22,8 +23,10 @@ public class Server {
 
     // Configure Spark
     port(4567);
-    // Specify where assets like images will be "stored"
-    staticFiles.location("/public");
+
+    // Specify where client assets are stored
+    // (all client-side HTML, CSS, JS, images, etc)
+    staticFiles.externalLocation(CLIENT_DIRECTORY);
 
     // Simple example route
     get("/hello", (req, res) -> "Hello World");
