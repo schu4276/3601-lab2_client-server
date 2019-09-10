@@ -11,10 +11,10 @@ Similarly, if you're just not sure what's going on or what something does, or
 how it does it, please ask! There's a _lot_ going on here, and if you're not
 confused now and then you're probably not paying attention. :smile:
 
-Before completing these lab tasks, make sure you have read through [`README.md`](./README.md) including: 
-- setting up your project [`README.md`](./README.md#setup)
-- tried running your server: [run configuration](./README.md#running-your-project)
-- tried testing your server tests: [testing your server](./README.md#testing-your-project)
+Before completing these lab tasks, make sure you have read through [`README.md`](./README.md) and completed the following: 
+- set up your project [`README.md`](./README.md#setup)
+- run your server: [run configuration](./README.md#running-your-project)
+- run your server tests: [testing your server](./README.md#testing-your-project)
 - [set up your repository with TravisCI](./README.md#continuous-integration-with-travis-ci)
 
 ## Exploring the project
