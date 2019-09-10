@@ -12,7 +12,7 @@ import static spark.Spark.*;
 
 public class Server {
 
-  public static final String CLIENT_DIRECTORY = "client";
+  public static final String CLIENT_DIRECTORY = "../client";
   public static final String USER_DATA_FILE = "src/main/data/users.json";
   private static Database userDatabase;
 
