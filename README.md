@@ -245,7 +245,7 @@ Your own forked project is now ready for the magic of continuous integration!
 
 ## Go do the lab!
 
-Now that you're all set up, you should be ready to head over to LABTASKS.md, where
+Now that you're all set up, you should be ready to head over to [LABTASKS.md](./LABTASKS.md), where
 most of the actual work of the lab is described.
 
 ## Resources
