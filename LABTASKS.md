@@ -326,7 +326,7 @@ actually work and generate results from your server.
 :question: *7* Describe what happens when you filter users by
 age in the client? 
 
-   * What is information is read from the web page, and where is it read from?
+   * What information is read from the web page, and where is it read from?
    * What request is sent to the server?
    * What reply does the server send back to the client? How is that constructed?
    * What is received by the client, and how/where is it displayed?
