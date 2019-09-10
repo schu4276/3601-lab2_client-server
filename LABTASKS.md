@@ -1,19 +1,21 @@
 # Lab Tasks
 
 - Questions that you need to answer (as a group!) are indicated with question mark symbols (:question:).
-- The Question section is at the end of this document.
+- The [Questions](./LABTASKS.md#questions) section is at the end of this document.
 - Tasks that specify work to do without a written response will be bulleted.
 
-Responses to questions should be submitted as specified by your instructor.
+Responses to questions should be submitted as specified below (in the [QUESTIONS](./LABTASKS.md#questions)).
 
 If you're ever confused about what you need to do for a given task, ask.
 Similarly, if you're just not sure what's going on or what something does, or
 how it does it, please ask! There's a _lot_ going on here, and if you're not
 confused now and then you're probably not paying attention. :smile:
 
-Before completing these lab tasks, make sure you have read through
-[`README.md`](./README.md) and have created the run configuration and set up
-your repository with TravisCI.
+Before completing these lab tasks, make sure you have read through [`README.md`](./README.md) including: 
+- setting up your project [`README.md`](./README.md#setup)
+- tried running your server: [run configuration](./README.md#running-your-project)
+- tried testing your server tests: [testing your server](./README.md#testing-your-project)
+- [set up your repository with TravisCI](./README.md#continuous-integration-with-travis-ci)
 
 ## Exploring the project
 
@@ -30,11 +32,14 @@ Run it according to the instructions in the
 [README](./README.md), including running the JUnit tests. Answer
 the following questions.
 
-> Protip: Using Google to gain additional knowledge or support your conjectures about how something works is great! It's important that you think about everything and come to an understanding, though, so don't use Google as a scapegoat to get the questions done quickly or you will regret it!
+> Protip: Using Google to gain additional knowledge or support your conjectures 
+about how something works is great! It's important that you think about how everything
+fits together and works, though, so don't use Google as a replacement for
+building your understanding or you will regret it!
 
 :question: Answer questions *4* and *5* [QUESTIONS](./LABTASKS.md#questions)
 
-Look at the tests in `src/test/java/umm3601.user` as they can
+Look at the tests in `server/src/test/java/umm3601.user` as they can
 provide useful information about the intention of various
 functions called by `Server` via the `UserController` class.
 
@@ -52,10 +57,9 @@ of `UserController`.
 
 ## Exploring the client
 
-The client resources are in `src/main/resources/public`, which
+The client resources are in `client`, which
 contains the necessary HTML, CSS, and JavaScript files to
-construct the _very_ simple client-side web app. To simplify things below
-we'll just refer to this as the `public` folder.
+construct the _very_ simple client-side web app.
 
 :question: Answer questions *6* and *7* and *8* [QUESTIONS](./LABTASKS.md#questions)
 
@@ -317,7 +321,7 @@ following URLs:
 :bangbang: If you have your project running (see the README), these links should
 actually work and generate results from your server.
 
-:question: *6* What are the contents of the `public` folder? What is the purpose of each of the HTML files there?
+:question: *6* What are the contents of the `client` folder? What is the purpose of each of the HTML files there?
 
 :question: *7* Describe what happens when you filter users by
 age in the client? 
