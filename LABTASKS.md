@@ -181,7 +181,7 @@ add, but you don't need to write tests for the client-side code since we
 haven't actually shown you how to do that. (We'll end up using some nice
 tools that integrate with Angular, but that's for the next lab.)
 
-There is a file `data/todos` that has several hundred randomly
+There is a file `data/todos.json` that has several hundred randomly
 generated "to-do"s, each of which has:
 
 * A unique `_id`
@@ -201,12 +201,12 @@ you should implement (and create meaningful server-side tests for) the following
       * Implement an `api/todos` server-side endpoint, which returns all the to-dos
       * Implement a basic HTML/CSS/JS interface that allows users to request and see
         all the todos.
-         * For this you'll have to Create a new HTML file called `todo.html` and a 
-           new Javascript file called `todo.js` and set those up so they look reasonable
+         * For this you'll have to Create a new HTML file called `todos.html` and a 
+           new Javascript file called `todos.js` and set those up so they look reasonable
            and provide the desired functionality. See below for some tips on how to
            get the client side work going.
-         * Note that there's some "one-time" work in setting up the `todo.html` and
-           `todo.js` files that you won't have to repeat on future epics, so you might
+         * Note that there's some "one-time" work in setting up the `todos.html` and
+           `todos.js` files that you won't have to repeat on future epics, so you might
            estimate this one a little higher than the later ones.
          * In general the first feature of a given type is the most expensive because that's
            where you have to figure out how things work and set up the infrastructure. You
@@ -261,8 +261,8 @@ we provided.
 
 For the client functionality, you'll need to:
 
-   * Create a new HTML file called `todo.html`
-   * Create a new Javascript file called `todo.js`
+   * Create a new HTML file called `todos.html`
+   * Create a new Javascript file called `todos.js`
       * > Make sure you create these files in the right locations! ;)
    * Use basic HTML form elements and javascript to create a simple
 interface for making requests to your API. Along with the basic form 
