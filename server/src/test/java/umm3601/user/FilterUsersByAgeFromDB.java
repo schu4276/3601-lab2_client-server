@@ -1,12 +1,13 @@
 package umm3601.user;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static junit.framework.TestCase.assertEquals;
 
 /**
  * Tests umm3601.user.Database filterUsersByAge
@@ -20,10 +21,10 @@ public class FilterUsersByAgeFromDB {
     User[] allUsers = db.listUsers(new HashMap<>());
 
     User[] age27Users = db.filterUsersByAge(allUsers, 27);
-    assertEquals("Incorrect number of users with age 27", 3, age27Users.length);
+    assertEquals(3, age27Users.length, "Incorrect number of users with age 27");
 
     User[] age33Users = db.filterUsersByAge(allUsers, 33);
-    assertEquals("Incorrect number of users with age 33", 1, age33Users.length);
+    assertEquals(1, age33Users.length, "Incorrect number of users with age 33");
   }
 
   @Test
@@ -33,10 +34,10 @@ public class FilterUsersByAgeFromDB {
 
     queryParams.put("age", new String[]{"27"});
     User[] age27Users = db.listUsers(queryParams);
-    assertEquals("Incorrect number of users with age 27", 3, age27Users.length);
+    assertEquals(3, age27Users.length, "Incorrect number of users with age 27");
 
     queryParams.put("age", new String[]{"33"});
     User[] age33Users = db.listUsers(queryParams);
-    assertEquals("Incorrect number of users with age 33", 1, age33Users.length);
+    assertEquals(1, age33Users.length, "Incorrect number of users with age 33");
   }
 }
