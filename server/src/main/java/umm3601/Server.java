@@ -1,14 +1,12 @@
 package umm3601;
 
-import spark.Filter;
-import spark.Request;
-import spark.Response;
 import umm3601.user.Database;
 import umm3601.user.UserController;
 
-import java.io.IOException;
+import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
 
-import static spark.Spark.*;
+import java.io.IOException;
 
 public class Server {
 
@@ -21,27 +19,27 @@ public class Server {
     // Initialize dependencies
     UserController userController = buildUserController();
 
-    // Configure Spark
-    port(4567);
+    Javalin server = Javalin.create(config -> {config.addStaticFiles(CLIENT_DIRECTORY, Location.EXTERNAL);}).start(4567);
 
     // Specify where client assets are stored
     // (all client-side HTML, CSS, JS, images, etc)
-    staticFiles.externalLocation(CLIENT_DIRECTORY);
+    // staticFiles.externalLocation(CLIENT_DIRECTORY);
 
     // Simple example route
-    get("/hello", (req, res) -> "Hello World");
+    server.get("/hello", ctx -> ctx.result("Hello World"));
 
     // Redirects to create simpler URLs
-    redirect.get("/about", "/about.html");
-    redirect.get("/users", "/users.html");
+    server.get("/about", ctx -> ctx.redirect("/about.html"));
+    server.get("/users", ctx -> ctx.redirect("/users.html"));
 
     // API endpoints
 
     // Get specific user
-    get("api/users/:id", userController::getUser);
-    // List users, filtered using query parameters
-    get("api/users", userController::getUsers);
+    server.get("api/users/:id", ctx -> userController.getUser(ctx));
 
+    // List users, filtered using query parameters
+    server.get("api/users", ctx -> userController.getUsers(ctx));
+/*
     // An example of throwing an unhandled exception so you can see how the
     // Java Spark debugger displays errors like this.
     get("api/error", (req, res) -> {
@@ -54,6 +52,7 @@ public class Server {
     // There's a similar "before" method that can be used to modify requests
     // before they they're processed by things like `get`.
     after("*", addGzipHeader);
+*/
   }
 
   /***
@@ -77,16 +76,16 @@ public class Server {
       e.printStackTrace(System.err);
 
       // Shut the server down
-      stop();
+      // stop();
       System.exit(1);
     }
 
     return userController;
   }
-
+/*
   // Enable GZIP for all responses
   private static Filter addGzipHeader = (Request request, Response response) -> {
     response.header("Content-Encoding", "gzip");
   };
-
+*/
 }
