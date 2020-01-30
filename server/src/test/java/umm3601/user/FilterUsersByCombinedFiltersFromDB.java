@@ -1,12 +1,13 @@
 package umm3601.user;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static junit.framework.TestCase.assertEquals;
 
 /**
  * Tests umm3601.user.Database listUsers
@@ -21,17 +22,17 @@ public class FilterUsersByCombinedFiltersFromDB {
 
     queryParams.put("age", new String[]{"25"});
     User[] age25Users = db.listUsers(queryParams);
-    assertEquals("Incorrect number of users with age 25", 2, age25Users.length);
+    assertEquals(2, age25Users.length, "Incorrect number of users with age 25");
 
     queryParams.clear();
     queryParams.put("company", new String[]{"OHMNET"});
     User[] ohmnetUsers = db.listUsers(queryParams);
-    assertEquals("Incorrect number of users with company OHMNET", 2, ohmnetUsers.length);
+    assertEquals(2, ohmnetUsers.length, "Incorrect number of users with company OHMNET");
 
     queryParams.clear();
     queryParams.put("age", new String[]{"25"});
     queryParams.put("company", new String[]{"OHMNET"});
     User[] ohmnetAge25Users = db.listUsers(queryParams);
-    assertEquals("Incorrect number of users with company OHMNET and age 25", 1, ohmnetAge25Users.length);
+    assertEquals(1, ohmnetAge25Users.length, "Incorrect number of users with company OHMNET and age 25");
   }
 }
