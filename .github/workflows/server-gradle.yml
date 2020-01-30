@@ -1,4 +1,4 @@
-name: Server Build and Test
+name: Server Java
 
 on: [push]
 
