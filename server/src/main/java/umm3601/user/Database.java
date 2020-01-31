@@ -51,6 +51,11 @@ public class Database {
       int targetAge = Integer.parseInt(queryParams.get("age")[0]);
       filteredUsers = filterUsersByAge(filteredUsers, targetAge);
     }
+    // Filter company if defined
+    if (queryParams.containsKey("company")) {
+      String targetCompany = queryParams.get("company")[0];
+      filteredUsers = filterUsersByCompany(filteredUsers, targetCompany);
+    }
     // Process other query parameters here...
 
     return filteredUsers;
@@ -66,6 +71,18 @@ public class Database {
    */
   public User[] filterUsersByAge(User[] users, int targetAge) {
     return Arrays.stream(users).filter(x -> x.age == targetAge).toArray(User[]::new);
+  }
+
+  /**
+   * Get an array of all the users having the target company.
+   *
+   * @param users     the list of users to filter by company
+   * @param targetCompany the target company to look for
+   * @return an array of all the users from the given list that have
+   * the target company
+   */
+  public User[] filterUsersByCompany(User[] users, String targetCompany) {
+    return Arrays.stream(users).filter(x -> x.company.equals(targetCompany)).toArray(User[]::new);
   }
 
 }
