@@ -19,7 +19,9 @@ public class Server {
     // Initialize dependencies
     UserController userController = buildUserController();
 
-    Javalin server = Javalin.create(config -> {config.addStaticFiles(CLIENT_DIRECTORY, Location.EXTERNAL);}).start(4567);
+    Javalin server = Javalin.create(config -> {
+      config.addStaticFiles(CLIENT_DIRECTORY, Location.EXTERNAL);
+    }).start(4567);
 
     // Specify where client assets are stored
     // (all client-side HTML, CSS, JS, images, etc)
