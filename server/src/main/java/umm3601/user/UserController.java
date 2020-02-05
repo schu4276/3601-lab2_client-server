@@ -1,18 +1,13 @@
 package umm3601.user;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import io.javalin.http.Context;
-
-import static umm3601.Util.*;
+import io.javalin.http.NotFoundResponse;
 
 /**
  * Controller that manages requests for info about users.
  */
 public class UserController {
 
-  private final Gson gson;
   private Database database;
 
   /**
@@ -25,7 +20,6 @@ public class UserController {
    * @param database the database containing user data
    */
   public UserController(Database database) {
-    gson = new Gson();
     this.database = database;
   }
 
@@ -37,28 +31,15 @@ public class UserController {
    * @return a success JSON object if the user with that ID is found, a fail
    * JSON object if no user with that ID is found
    */
-/*
-  public JsonObject getUser(Request req, Response res) {
-    res.type("application/json");
-    String id = req.params("id");
+  public void getUser(Context ctx) {
+    String id = ctx.pathParam("id");
     User user = database.getUser(id);
     if (user != null) {
-      return buildSuccessJsonResponse("user", gson.toJsonTree(user));
+      ctx.json(user);
     } else {
-      String message = "User with ID " + id + " wasn't found.";
-      return buildFailJsonResponse("id", message);
+      throw new NotFoundResponse("No user with id " + id + " was found.");
     }
   }
-*/
-
-public void getUser(Context ctx) {
-  ctx.res.setContentType("application/json");
-  String id = ctx.req.getParameter("id");
-  User user = database.getUser(id);
-  if (user != null) {
-    ctx.result(buildSuccessJsonResponse("user", gson.toJsonTree(user)).getAsString());
-  }
-}
 
   /**
    * Get a JSON response with a list of all the users in the "database".
@@ -67,18 +48,9 @@ public void getUser(Context ctx) {
    * @param res the HTTP response
    * @return a success JSON object containing all the users
    */
-/*
-  public JsonObject getUsers(Request req, Response res) {
-    res.type("application/json");
-    User[] users = database.listUsers(req.queryMap().toMap());
-    return buildSuccessJsonResponse("users", gson.toJsonTree(users));
+  public void getUsers(Context ctx) {
+    User[] users = database.listUsers(ctx.req.getParameterMap());
+    ctx.json(users);
   }
-*/
-
-public void getUsers(Context ctx) {
-  ctx.res.setContentType("application/json");
-  User[] users = database.listUsers(ctx.req.getParameterMap());
-  ctx.result(buildSuccessJsonResponse("users", gson.toJsonTree(users)).getAsString());
-}
 
 }
