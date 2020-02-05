@@ -18,6 +18,9 @@ dependencies {
   compile 'org.slf4j:slf4j-simple:1.7.30'
   compile 'com.google.code.gson:gson:2.8.6'
 
+  // Jackson, a JSON library for Java
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+
   testCompile 'junit:junit:4.13'
 }
 
