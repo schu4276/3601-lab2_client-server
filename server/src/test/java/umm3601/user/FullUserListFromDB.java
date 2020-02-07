@@ -1,11 +1,12 @@
 package umm3601.user;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.HashMap;
 
-import static org.junit.Assert.assertEquals;
 
 /**
  * Tests umm3601.user.Database listUser functionality
@@ -16,7 +17,7 @@ public class FullUserListFromDB {
   public void totalUserCount() throws IOException {
     Database db = new Database("src/main/data/users.json");
     User[] allUsers = db.listUsers(new HashMap<>());
-    assertEquals("Incorrect total number of users", 10, allUsers.length);
+    assertEquals(10, allUsers.length, "Incorrect total number of users");
   }
 
   @Test
@@ -24,9 +25,9 @@ public class FullUserListFromDB {
     Database db = new Database("src/main/data/users.json");
     User[] allUsers = db.listUsers(new HashMap<>());
     User firstUser = allUsers[0];
-    assertEquals("Incorrect name", "Connie Stewart", firstUser.name);
-    assertEquals("Incorrect age", 25, firstUser.age);
-    assertEquals("Incorrect company", "OHMNET", firstUser.company);
-    assertEquals("Incorrect e-mail", "conniestewart@ohmnet.com", firstUser.email);
+    assertEquals("Connie Stewart", firstUser.name, "Incorrect name");
+    assertEquals(25, firstUser.age, "Incorrect age");
+    assertEquals("OHMNET", firstUser.company, "Incorrect company");
+    assertEquals("conniestewart@ohmnet.com", firstUser.email, "Incorrect e-mail");
   }
 }
