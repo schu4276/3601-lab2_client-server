@@ -5,7 +5,6 @@ import umm3601.user.UserController;
 
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
-
 import java.io.IOException;
 
 public class Server {
@@ -21,6 +20,10 @@ public class Server {
 
     Javalin server = Javalin.create(config -> {
       config.addStaticFiles(CLIENT_DIRECTORY, Location.EXTERNAL);
+
+    // set the compression strategy and levels (currently done by Caddy)
+    // config.compressionStrategy(Brotli(4), Gzip(6));
+
     }).start(4567);
 
     // Specify where client assets are stored
@@ -41,20 +44,12 @@ public class Server {
 
     // List users, filtered using query parameters
     server.get("api/users", ctx -> userController.getUsers(ctx));
-/*
+
     // An example of throwing an unhandled exception so you can see how the
     // Java Spark debugger displays errors like this.
-    get("api/error", (req, res) -> {
+    server.get("api/error", ctx -> {
       throw new RuntimeException("A demonstration error");
     });
-
-    // Called after each request to insert the GZIP header into the response.
-    // This causes the response to be compressed _if_ the client specified
-    // in their request that they can accept compressed responses.
-    // There's a similar "before" method that can be used to modify requests
-    // before they they're processed by things like `get`.
-    after("*", addGzipHeader);
-*/
   }
 
   /***
@@ -84,10 +79,4 @@ public class Server {
 
     return userController;
   }
-/*
-  // Enable GZIP for all responses
-  private static Filter addGzipHeader = (Request request, Response response) -> {
-    response.header("Content-Encoding", "gzip");
-  };
-*/
 }
