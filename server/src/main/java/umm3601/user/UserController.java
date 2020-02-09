@@ -26,15 +26,17 @@ public class UserController {
   /**
    * Get the single user specified by the `id` parameter in the request.
    *
-   * @param req the HTTP request
+   * @param ctx a Javalin HTTP context
    * @return a success JSON object if the user with that ID is found, a fail
    * JSON object if no user with that ID is found
    */
   public void getUser(Context ctx) {
-    String id = ctx.pathParam("id");
+    // String id = ctx.pathParam("id"); // Less stable in testing
+    String id = ctx.pathParam("id", String.class).get();
     User user = database.getUser(id);
     if (user != null) {
       ctx.json(user);
+      ctx.status(201);
     } else {
       throw new NotFoundResponse("No user with id " + id + " was found.");
     }
@@ -43,7 +45,7 @@ public class UserController {
   /**
    * Get a JSON response with a list of all the users in the "database".
    *
-   * @param req the HTTP request
+   * @param ctx a Javalin HTTP context
    * @return a success JSON object containing all the users
    */
   public void getUsers(Context ctx) {

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-// import io.javalin.core.validation.Validator;
+import io.javalin.core.validation.Validator;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 import umm3601.Server;
@@ -87,16 +87,14 @@ public class UserControllerSpec {
 
   @Test
   public void GET_to_request_user_with_existent_id() throws IOException  {
-    doReturn("588935f5c668650dc77df581").when(ctx).pathParam("id");  // Not stable
-    // doReturn(new Validator<String>("588935f5c668650dc77df581", "")).when(ctx).pathParam("id", String.class);
+    doReturn(new Validator<String>("588935f5c668650dc77df581", "")).when(ctx).pathParam("id", String.class);
     userController.getUser(ctx);
     verify(ctx).status(201);
   }
 
   @Test
   public void GET_to_request_user_with_nonexistent_id() throws IOException  {
-    doReturn("nonexistent").when(ctx).pathParam("id"); // Not stable
-    // doReturn(new Validator<String>("nonexistent", "")).when(ctx).pathParam("id", String.class);
+    doReturn(new Validator<String>("nonexistent", "")).when(ctx).pathParam("id", String.class);
     Assertions.assertThrows(NotFoundResponse.class, () -> {
       userController.getUser(ctx);
     });
