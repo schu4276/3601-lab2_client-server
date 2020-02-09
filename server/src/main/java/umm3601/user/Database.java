@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -43,17 +44,17 @@ public class Database {
    * @param queryParams map of required key-value pairs for the query
    * @return an array of all the users matching the given criteria
    */
-  public User[] listUsers(Map<String, String[]> queryParams) {
+  public User[] listUsers(Map<String, List<String>> queryParams) {
     User[] filteredUsers = allUsers;
 
     // Filter age if defined
     if (queryParams.containsKey("age")) {
-      int targetAge = Integer.parseInt(queryParams.get("age")[0]);
+      int targetAge = Integer.parseInt(queryParams.get("age").get(0));
       filteredUsers = filterUsersByAge(filteredUsers, targetAge);
     }
     // Filter company if defined
     if (queryParams.containsKey("company")) {
-      String targetCompany = queryParams.get("company")[0];
+      String targetCompany = queryParams.get("company").get(0);
       filteredUsers = filterUsersByCompany(filteredUsers, targetCompany);
     }
     // Process other query parameters here...

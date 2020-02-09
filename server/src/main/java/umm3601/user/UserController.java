@@ -27,7 +27,6 @@ public class UserController {
    * Get the single user specified by the `id` parameter in the request.
    *
    * @param req the HTTP request
-   * @param res the HTTP response
    * @return a success JSON object if the user with that ID is found, a fail
    * JSON object if no user with that ID is found
    */
@@ -45,12 +44,13 @@ public class UserController {
    * Get a JSON response with a list of all the users in the "database".
    *
    * @param req the HTTP request
-   * @param res the HTTP response
    * @return a success JSON object containing all the users
    */
   public void getUsers(Context ctx) {
-    User[] users = database.listUsers(ctx.req.getParameterMap());
+    User[] users = database.listUsers(ctx.queryParamMap());
     ctx.json(users);
+    ctx.attribute("ReturnedUserCount", users.length);
+
   }
 
 }
