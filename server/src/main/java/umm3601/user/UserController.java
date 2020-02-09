@@ -31,7 +31,6 @@ public class UserController {
    * JSON object if no user with that ID is found
    */
   public void getUser(Context ctx) {
-    // String id = ctx.pathParam("id"); // Less stable in testing
     String id = ctx.pathParam("id", String.class).get();
     User user = database.getUser(id);
     if (user != null) {

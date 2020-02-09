@@ -20,10 +20,6 @@ public class Server {
 
     Javalin server = Javalin.create(config -> {
       config.addStaticFiles(CLIENT_DIRECTORY, Location.EXTERNAL);
-
-    // set the compression strategy and levels (currently done by Caddy)
-    // config.compressionStrategy(Brotli(4), Gzip(6));
-
     }).start(4567);
 
     // Specify where client assets are stored
