@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,10 @@ public class Database {
     Gson gson = new Gson();
     FileReader reader = new FileReader(userDataFile);
     allUsers = gson.fromJson(reader, User[].class);
+  }
+
+  public int size() {
+    return allUsers.length;
   }
 
   /**

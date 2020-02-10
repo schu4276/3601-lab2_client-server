@@ -1,9 +1,11 @@
 package umm3601.user;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.junit.jupiter.api.Assertions;
 
 import io.javalin.core.validation.Validator;
@@ -32,7 +34,6 @@ public class UserControllerSpec {
 
   @BeforeEach
   public void setUp() throws IOException {
-
     ctx.clearCookieStore();
 
     db = new Database(Server.USER_DATA_FILE);
@@ -41,10 +42,13 @@ public class UserControllerSpec {
 
   @Test
   public void GET_to_request_all_users() throws IOException {
-
+    // Call the method on the mock controller
     userController.getUsers(ctx);
 
-    verify(ctx).attribute("ReturnedUserCount", 10);
+    // Confirm that `json` was called with all the users.
+    ArgumentCaptor<User[]> argument = ArgumentCaptor.forClass(User[].class);
+    verify(ctx).json(argument.capture());
+    assertEquals(db.size(), argument.getValue().length);
   }
 
   @Test
@@ -56,7 +60,12 @@ public class UserControllerSpec {
     when(ctx.queryParamMap()).thenReturn(queryParams);
     userController.getUsers(ctx);
 
-    verify(ctx).attribute("ReturnedUserCount", 2);
+    // Confirm that all the users passed to `json` have age 25.
+    ArgumentCaptor<User[]> argument = ArgumentCaptor.forClass(User[].class);
+    verify(ctx).json(argument.capture());
+    for (User user : argument.getValue()) {
+      assertEquals(25, user.age);
+    }
   }
 
   @Test
@@ -68,7 +77,12 @@ public class UserControllerSpec {
     when(ctx.queryParamMap()).thenReturn(queryParams);
     userController.getUsers(ctx);
 
-    verify(ctx).attribute("ReturnedUserCount", 2);
+    // Confirm that all the users passed to `json` work for OHMNET.
+    ArgumentCaptor<User[]> argument = ArgumentCaptor.forClass(User[].class);
+    verify(ctx).json(argument.capture());
+    for (User user : argument.getValue()) {
+      assertEquals("OHMNET", user.company);
+    }
   }
 
   @Test
@@ -82,7 +96,14 @@ public class UserControllerSpec {
     when(ctx.queryParamMap()).thenReturn(queryParams);
     userController.getUsers(ctx);
 
-    verify(ctx).attribute("ReturnedUserCount", 1);
+    // Confirm that all the users passed to `json` work for OHMNET
+    // and have age 25.
+    ArgumentCaptor<User[]> argument = ArgumentCaptor.forClass(User[].class);
+    verify(ctx).json(argument.capture());
+    for (User user : argument.getValue()) {
+      assertEquals(25, user.age);
+      assertEquals("OHMNET", user.company);
+    }
   }
 
   @Test

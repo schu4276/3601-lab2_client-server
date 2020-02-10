@@ -47,7 +47,6 @@ public class UserController {
   public void getUsers(Context ctx) {
     User[] users = database.listUsers(ctx.queryParamMap());
     ctx.json(users);
-    ctx.attribute("ReturnedUserCount", users.length);
   }
 
 }
