@@ -1,11 +1,11 @@
 package umm3601;
 
-import umm3601.user.Database;
-import umm3601.user.UserController;
+import java.io.IOException;
 
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
-import java.io.IOException;
+import umm3601.user.Database;
+import umm3601.user.UserController;
 
 public class Server {
 
@@ -19,7 +19,10 @@ public class Server {
     UserController userController = buildUserController();
 
     Javalin server = Javalin.create(config -> {
+      // This tells the server where to look for static files,
+      // like HTML and JavaScript.
       config.addStaticFiles(CLIENT_DIRECTORY, Location.EXTERNAL);
+      // The next line starts the server listening on port 4567.
     }).start(4567);
 
     // Specify where client assets are stored
@@ -40,12 +43,6 @@ public class Server {
 
     // List users, filtered using query parameters
     server.get("api/users", ctx -> userController.getUsers(ctx));
-
-    // An example of throwing an unhandled exception so you can see how the
-    // Java Spark debugger displays errors like this.
-    server.get("api/error", ctx -> {
-      throw new RuntimeException("A demonstration error");
-    });
   }
 
   /***
@@ -54,9 +51,8 @@ public class Server {
    *
    * Constructing the controller might throw an IOException if
    * there are problems reading from the JSON "database" file.
-   * If that happens we'll print out an error message and shut
-   * the server down.
-   * @throws IOException if we can't open or read the user data file
+   * If that happens we'll print out an error message exit the
+   * program.
    */
   private static UserController buildUserController() {
     UserController userController = null;
@@ -68,8 +64,7 @@ public class Server {
       System.err.println("The server failed to load the user data; shutting down.");
       e.printStackTrace(System.err);
 
-      // Shut the server down
-      // stop();
+      // Exit from the Java program
       System.exit(1);
     }
 
