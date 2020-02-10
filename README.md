@@ -159,6 +159,30 @@ This last two options are particularly nice because it gives you better
 integrated feedback in VS Code and the ability to just run single
 tests or files of tests when you're trying to debug a complex problem.
 
+## Checking your code coverage
+
+We have [the JaCoCo (Java Code Coverage) plugin set up in Gradle](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
+so you can see how well your tests cover (i.e., exercise) your code. The command
+
+```bash
+./gradlew test jacocoTestReport
+```
+
+will run the tests followed by the test coverage report generator. The report is in fact
+a small "website" composed of a collection of HTML files. To see the report open the file
+
+```bash
+server/build/jacocoHtml/index.html
+```
+
+If you generate and look at that report at the start of the lab, you'll see that you start
+with 100% coverage of all the `user` files. You'd like to keep it that way, so check your
+code coverage after major stories are finished and look for areas that you're not yet testing.
+
+:bangbang: The server file itself currently has 0% coverage, although we think we could
+improve that by using [Javalin's support for functional/integration tests](https://javalin.io/tutorials/testing). You are not obliged to provide any coverage for that. You should make
+sure your tests cover things like your `ToDoController` and the like, though.
+
 ## Continuous Integration with GitHub Actions
 
 [GitHub Actions][ghactions] is a Continuous Integration tool that performs 
