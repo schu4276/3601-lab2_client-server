@@ -22,7 +22,7 @@ visit a URL such as `http://localhost:4567/api/users` and the server
 will respond with JSON-formatted text (following the [JSend][jsend] 
 guidelines) containing
 all the users the server knows about, e.g.,
-```
+```json
 {
   "status": "success",
   "data": {
