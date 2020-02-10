@@ -17,7 +17,7 @@ public class UserController {
    * stores that internally so that (subsets of) users can be returned
    * in response to requests.
    *
-   * @param database the database containing user data
+   * @param database the `Database` containing user data
    */
   public UserController(Database database) {
     this.database = database;
@@ -27,8 +27,6 @@ public class UserController {
    * Get the single user specified by the `id` parameter in the request.
    *
    * @param ctx a Javalin HTTP context
-   * @return a success JSON object if the user with that ID is found, a fail
-   * JSON object if no user with that ID is found
    */
   public void getUser(Context ctx) {
     String id = ctx.pathParam("id", String.class).get();
@@ -45,13 +43,11 @@ public class UserController {
    * Get a JSON response with a list of all the users in the "database".
    *
    * @param ctx a Javalin HTTP context
-   * @return a success JSON object containing all the users
    */
   public void getUsers(Context ctx) {
     User[] users = database.listUsers(ctx.queryParamMap());
     ctx.json(users);
     ctx.attribute("ReturnedUserCount", users.length);
-
   }
 
 }
