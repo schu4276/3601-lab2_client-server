@@ -15,8 +15,7 @@ Before completing these lab tasks, make sure you have read through [`README.md`]
 - set up your project [`README.md`](./README.md#setup)
 - run your server: [run configuration](./README.md#running-your-project)
 - run your server tests: [testing your server](./README.md#testing-your-project)
-- [set up your repository with TravisCI](./README.md#continuous-integration-with-travis-ci)
-
+- 
 ## Exploring the project
 
 Look over the directory structure of the project before you start
@@ -298,7 +297,7 @@ _why_ we'd want to have it.
 :question: *2* What role is Gradle playing in the
 project, and what is the purpose of `build.gradle`?
 
-:question: *3* What is the purpose of Travis-CI?
+:question: *3* What is the purpose of Github Actions?
 
 :question: *4* Explain what a _route_ is. (You might look at the 
 [Java Spark documentation](http://sparkjava.com/documentation)
