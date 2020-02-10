@@ -2,10 +2,9 @@
 
 [![Server Build Status](workflows/Server%20Java/badge.svg)](actions)
 
-
-Here you will explore serving up a simple website that you create, 
-using a [Java Spark][spark] server. Spark is a micro framework for 
-creating web applications in Java. You will be using Spark to create 
+Here you will explore serving up a simple website that you create,
+using a [Java Spark][spark] server. Spark is a micro framework for
+creating web applications in Java. You will be using Spark to create
 the server component (back-end) of your website.
 
 The client component (front-end) of your website will use JavaScript
@@ -20,9 +19,10 @@ You'll be building parts of a simple to-do list using a
 client-server architecture. The server will be able to handle
 simple HTTP GET requests, where a client (or a user) can
 visit a URL such as `http://localhost:4567/api/users` and the server
-will respond with JSON-formatted text (following the [JSend][jsend] 
+will respond with JSON-formatted text (following the [JSend][jsend]
 guidelines) containing
 all the users the server knows about, e.g.,
+
 ```json
 {
   "status": "success",
@@ -67,13 +67,12 @@ that the client receives from the server.
 This lab has two components:
 
 * Implement the desired server functionality
-* Implement a simple web client that allows users to 
+* Implement a simple web client that allows users to
 access that server functionality through HTML forms
 
 The details of both of these components are in [LABTASKS.md](./LABTASKS.md).
 
 ## Setup
-
 
 ### Cloning the project in GitKraken
 
@@ -84,8 +83,8 @@ The details of both of these components are in [LABTASKS.md](./LABTASKS.md).
 
 ### Open the project in VS Code
 
-Launch Visual Studio Code, and then choose `File -> Open Folder…`. Navigate to your clone 
-of the repo and choose `Open`. 
+Launch Visual Studio Code, and then choose `File -> Open Folder…`. Navigate to your clone
+of the repo and choose `Open`.
 
 You may see a dialog that looks like this if you don't already have the recommended extensions:
 
@@ -97,7 +96,7 @@ Like in previous labs, click "Install All" to automatically install them.
 
 ### Install JSONView browser extension
 
-You'll also want the JSONView extension for either Firefox or Chrome installed. 
+You'll also want the JSONView extension for either Firefox or Chrome installed.
 This will make JSON in the browser look pretty and actually be readable.
 
 * Firefox: [JSONView][jsonview-firefox]
@@ -109,23 +108,26 @@ We use the [Gradle][gradle] build tool to build and run our web application.
 Gradle is a powerful system for defining, managing, and running tasks
 that allows us to easily build and test our full web application.
 
-We will be using Gradle from the terminal. You can do this either with the terminal app or the terminal built into VS Code. 
+We will be using Gradle from the terminal. You can do this either with the terminal app or the terminal built into VS Code.
 
-From the project directory, you will need to change into the `server` directory with 
+From the project directory, you will need to change into the `server` directory with
+
 ```bash
 cd server
 ```
 
 From the server directory you can use Gradle to run the server:
+
 ```bash
 ./gradlew run
 ```
 
-Your server should now be running on port 4567, the default Spark port. 
+Your server should now be running on port 4567, the default Spark port.
 Visit it at [http://localhost:4567][local] in your web browser. The
 server will continue to run indefinitely until you stop it
 
 To run the JUnit tests:
+
 ```bash
 ./gradlew test
 ```
@@ -136,13 +138,13 @@ You can also run your tests right in VS Code by clicking the "Run Test" link abo
 
 There's very little meaningful logic in the client component of this
 project so we're not going to worry about testing the client here.
-We'll begin testing the client when we introduce Angular in subsequent 
+We'll begin testing the client when we introduce Angular in subsequent
 labs.
 
 The server-side portion of this project will be tested using JUnit.
 Server-side tests are located in the `src/test/java` directory.
 
-To run your server-side tests, you have a few options: 
+To run your server-side tests, you have a few options:
 
 You can run `./gradlew test` from the `server` directory in the terminal to run all tests and output info about the run to an HTML file.
 
@@ -185,10 +187,10 @@ sure your tests cover things like your `ToDoController` and the like, though.
 
 ## Continuous Integration with GitHub Actions
 
-[GitHub Actions][ghactions] is a Continuous Integration tool that performs 
-builds of your project every time you push to GitHub. 
-This is very helpful, as it makes keeping track of your testing 
-over the lifetime of a project very easy. Having a build/test 
+[GitHub Actions][ghactions] is a Continuous Integration tool that performs
+builds of your project every time you push to GitHub.
+This is very helpful, as it makes keeping track of your testing
+over the lifetime of a project very easy. Having a build/test
 history makes it easy to find where, or when, your project broke,
 which makes it a lot easier to figure out _why_ it broke and get
 it fixed and building successfully again.
@@ -204,23 +206,23 @@ most of the actual work of the lab is described.
 
 ## Resources
 
-##### Running in the command line
+### Running in the command line
 
 We include a Gradle wrapper which lets you run gradle tasks from the command line. So, you can run tasks like:
 
-```
+```bash
 ./gradlew test
 ```
 
-##### Handling requests in Spark
+### Handling requests in Spark
 
-- [Using Spark to create APIs in Java][spark-api]
-- [Response handling with Spark][spark-response]
-- [Spark documentation][spark-documentation]
-- [Example of a nicely structured, more complex Spark project][spark-structure]
-- [JSend "standard" for JSON responses][jsend]
-- [Best practices for REST interface design][rest-best-practices]
-- [HTTP Status Codes][status-codes]
+* [Using Spark to create APIs in Java][spark-api]
+* [Response handling with Spark][spark-response]
+* [Spark documentation][spark-documentation]
+* [Example of a nicely structured, more complex Spark project][spark-structure]
+* [JSend "standard" for JSON responses][jsend]
+* [Best practices for REST interface design][rest-best-practices]
+* [HTTP Status Codes][status-codes]
 
 [gradle]: https://gradle.org/
 [intellij-idea]: https://www.jetbrains.com/idea/
