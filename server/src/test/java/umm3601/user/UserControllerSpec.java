@@ -18,6 +18,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -108,14 +110,14 @@ public class UserControllerSpec {
 
   @Test
   public void GET_to_request_user_with_existent_id() throws IOException  {
-    doReturn(new Validator<String>("588935f5c668650dc77df581", "")).when(ctx).pathParam("id", String.class);
+    when(ctx.pathParam("id", String.class)).thenReturn(new Validator<String>("588935f5c668650dc77df581", ""));
     userController.getUser(ctx);
     verify(ctx).status(201);
   }
 
   @Test
   public void GET_to_request_user_with_nonexistent_id() throws IOException  {
-    doReturn(new Validator<String>("nonexistent", "")).when(ctx).pathParam("id", String.class);
+    when(ctx.pathParam("id", String.class)).thenReturn(new Validator<String>("nonexistent", ""));
     Assertions.assertThrows(NotFoundResponse.class, () -> {
       userController.getUser(ctx);
     });
