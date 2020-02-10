@@ -25,10 +25,6 @@ public class Server {
       // The next line starts the server listening on port 4567.
     }).start(4567);
 
-    // Specify where client assets are stored
-    // (all client-side HTML, CSS, JS, images, etc)
-    // staticFiles.externalLocation(CLIENT_DIRECTORY);
-
     // Simple example route
     server.get("/hello", ctx -> ctx.result("Hello World"));
 
@@ -46,13 +42,12 @@ public class Server {
   }
 
   /***
-   * Create a database using the json fie, use it as
-   * data source for a new UserController
+   * Create a database using the json file, use it as data source for a new
+   * UserController
    *
-   * Constructing the controller might throw an IOException if
-   * there are problems reading from the JSON "database" file.
-   * If that happens we'll print out an error message exit the
-   * program.
+   * Constructing the controller might throw an IOException if there are problems
+   * reading from the JSON "database" file. If that happens we'll print out an
+   * error message exit the program.
    */
   private static UserController buildUserController() {
     UserController userController = null;
