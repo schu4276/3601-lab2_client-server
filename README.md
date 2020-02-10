@@ -1,10 +1,11 @@
-# CSCI 3601 Lab #2 - JavaScript and Spark Lab
+# CSCI 3601 Lab #2 - Building a web server in Java with Javalin
 
 [![Server Build Status](workflows/Server%20Java/badge.svg)](actions)
 
 Here you will explore serving up a simple website that you create,
-using a [Java Spark][spark] server. Spark is a micro framework for
-creating web applications in Java. You will be using Spark to create
+using a server written with the [Javalin framework][javalin-io] server.
+Javalin is a micro framework for
+creating web applications in Java which you will be using to create
 the server component (back-end) of your website.
 
 The client component (front-end) of your website will use JavaScript
@@ -19,40 +20,34 @@ You'll be building parts of a simple to-do list using a
 client-server architecture. The server will be able to handle
 simple HTTP GET requests, where a client (or a user) can
 visit a URL such as `http://localhost:4567/api/users` and the server
-will respond with JSON-formatted text (following the [JSend][jsend]
-guidelines) containing
+will respond with JSON-formatted text containing
 all the users the server knows about, e.g.,
 
 ```json
-{
-  "status": "success",
-  "data": {
-    "users": [
-      {
-        "_id": "588935f57546a2daea44de7c",
-        "name": "Connie Stewart",
-        "age": 25,
-        "company": "OHMNET",
-        "email": "conniestewart@ohmnet.com"
-      },
-      {
-        "_id": "588935f5597715f06f3e8f6c",
-        "name": "Lynn Ferguson",
-        "age": 25,
-        "company": "NIQUENT",
-        "email": "lynnferguson@niquent.com"
-      },
-      {
-        "_id": "588935f51c55b55c75a84848",
-        "name": "Roseann Roberson",
-        "age": 23,
-        "company": "GINKLE",
-        "email": "roseannroberson@ginkle.com"
-      },
-      ...
-    ]
-  }
-}
+[
+  {
+    "_id":"588935f57546a2daea44de7c",
+    "name":"Connie Stewart",
+    "age":25,
+    "company":"OHMNET",
+    "email":"conniestewart@ohmnet.com"
+  },
+  {
+    "_id":"588935f5597715f06f3e8f6c",
+    "name":"Lynn Ferguson",
+    "age":25,
+    "company":"NIQUENT",
+    "email":"lynnferguson@niquent.com"
+  },
+  {
+    "_id":"588935f51c55b55c75a84848",
+    "name":"Roseann Roberson",
+    "age":23,
+    "company":"OHMNET",
+    "email":"roseannroberson@ohmnet.com"
+  },
+  ...
+]
 ```
 
 The client will be a combination of HTML, CSS, and JavaScript
@@ -122,7 +117,8 @@ From the server directory you can use Gradle to run the server:
 ./gradlew run
 ```
 
-Your server should now be running on port 4567, the default Spark port.
+Your server should now be running on port 4567, the port we've configured Javalin to
+run on.
 Visit it at [http://localhost:4567][local] in your web browser. The
 server will continue to run indefinitely until you stop it
 
@@ -214,32 +210,26 @@ We include a Gradle wrapper which lets you run gradle tasks from the command lin
 ./gradlew test
 ```
 
-### Handling requests in Spark
+### Handling requests in Javalin
 
-* [Using Spark to create APIs in Java][spark-api]
-* [Response handling with Spark][spark-response]
-* [Spark documentation][spark-documentation]
-* [Example of a nicely structured, more complex Spark project][spark-structure]
-* [JSend "standard" for JSON responses][jsend]
+* [Getting started in Javalin](https://javalin.io/documentation#getting-started)
+* [Javalin tutorials](https://javalin.io/tutorials/)
+* [Testing Javalin](https://javalin.io/tutorials/testing)
+* [Mockito testing in Javalin](https://javalin.io/tutorials/mockito-testing)
 * [Best practices for REST interface design][rest-best-practices]
 * [HTTP Status Codes][status-codes]
 
+[javalin-io]: https://javalin.io
 [gradle]: https://gradle.org/
 [intellij-idea]: https://www.jetbrains.com/idea/
 [jasmine]: https://jasmine.github.io/
 [jasmine-introduction]: http://jasmine.github.io/2.0/introduction.html
-[jsend]: https://github.com/omniti-labs/jsend
 [jsonview-chrome]: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en
 [jsonview-firefox]: https://addons.mozilla.org/en-us/firefox/addon/jsonview/
 [karma]: https://karma-runner.github.io/1.0/index.html
 [labtasks]: LABTASKS.md
 [local]: http://localhost:4567/
 [rest-best-practices]: https://medium.com/@mwaysolutions/10-best-practices-for-better-restful-api-cbe81b06f291
-[spark]: http://sparkjava.com/
-[spark-api]: http://nordicapis.com/using-spark-to-create-apis-in-java/
-[spark-documentation]: http://sparkjava.com/documentation.html
-[spark-response]: http://sparkjava.com/documentation.html#response
-[spark-structure]: http://sparkjava.com/tutorials/application-structure
 
 [status-codes]: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 [ghactions]: https://github.com/features/actions
