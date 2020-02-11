@@ -44,7 +44,7 @@ public class Database {
   /**
    * Get an array of all the users satisfying the queries in the params.
    *
-   * @param queryParams map of required key-value pairs for the query
+   * @param queryParams map of key-value pairs for the query
    * @return an array of all the users matching the given criteria
    */
   public User[] listUsers(Map<String, List<String>> queryParams) {
