@@ -47,12 +47,12 @@ good to deliberately modify some of the tests and see what
 happens when they break. (But make sure you restore them to
 their passing state when you're done.)
 
-:warning: It's fairly complicated to test Java Spark 
-controller functions that 
-take a `Request` and `Response` object, update the `Response` and return
-a `JsonObject` (like `UserController.getUser`). So at the moment we
-have solid testing of `User` and `Database`, but no direct testing 
-of `UserController`.
+:warning: We provide very solid testing for everything except for
+the top level `Server` class, which is at the moment completely
+untested. We think we could use
+[functional testing in Javalin](https://javalin.io/tutorials/testing)
+to provide coverage of the `Server` class, but we haven't tried that
+yet. (You can, though. 😄)
 
 ## Exploring the client
 
@@ -175,9 +175,9 @@ shinier when we introduce Angular in the next lab.)
 Your goal in this lab is to use test-driven development (TDD) to
 extend the server's API to support serving 'to-do' data in such a way that it works with the provided client.
 We **do** want you to write JUnit tests for the server functionality you
-add, but you don't need to write tests for the client-side code since we
-haven't actually shown you how to do that. (We'll end up using some nice
-tools that integrate with Angular, but that's for the next lab.)
+add, but you don't need to worry about the JavaScript code or how one
+might test it. (We'll end up using some nice testing
+tools that integrate with Angular.)
 
 There is a file `data/todos.json` that has several hundred randomly
 generated "to-do"s, each of which has:
