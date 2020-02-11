@@ -1,8 +1,8 @@
 # Lab Tasks
 
-- Questions that you need to answer (as a group!) are indicated with question mark symbols (:question:).
-- The [Questions](./LABTASKS.md#questions) section is at the end of this document.
-- Tasks that specify work to do without a written response will be bulleted.
+* Questions that you need to answer (as a group!) are indicated with question mark symbols (:question:).
+* The [Questions](./LABTASKS.md#questions) section is at the end of this document.
+* Tasks that specify work to do without a written response will be bulleted.
 
 Responses to questions should be submitted as specified below (in the [QUESTIONS](./LABTASKS.md#questions)).
 
@@ -11,11 +11,12 @@ Similarly, if you're just not sure what's going on or what something does, or
 how it does it, please ask! There's a _lot_ going on here, and if you're not
 confused now and then you're probably not paying attention. :smile:
 
-Before completing these lab tasks, make sure you have read through [`README.md`](./README.md) and completed the following: 
-- set up your project [`README.md`](./README.md#setup)
-- run your server: [run configuration](./README.md#running-your-project)
-- run your server tests: [testing your server](./README.md#testing-your-project)
-- 
+Before completing these lab tasks, make sure you have read through [`README.md`](./README.md) and completed the following:
+
+* Set up your project [`README.md`](./README.md#setup)
+* Run your server: [run configuration](./README.md#running-your-project)
+* Run your server tests: [testing your server](./README.md#testing-your-project)
+
 ## Exploring the project
 
 Look over the directory structure of the project before you start
@@ -31,7 +32,7 @@ Run it according to the instructions in the
 [README](./README.md), including running the JUnit tests. Answer
 the following questions.
 
-> Protip: Using Google to gain additional knowledge or support your conjectures 
+> Protip: Using Google to gain additional knowledge or support your conjectures
 about how something works is great! It's important that you think about how everything
 fits together and works, though, so don't use Google as a replacement for
 building your understanding or you will regret it!
@@ -68,10 +69,7 @@ We'll be using ZenHub to augment the standard GitHub issues
 system with nifty powers to aid in Agile estimating,
 planning, tracking, and development. The next two sections
 describe the software development tasks you need to complete
-for this lab, which fall into two main groups:
-* Augmenting the server API with new functionality
-* Augmenting the client to allow the user to access that new
-functionality.
+for this lab, which all take the form of augmenting the server API with new functionality.
 
 ### Setting up the project ZenHub board
 
@@ -81,27 +79,27 @@ stories and do some planning.
 
 * Make sure you've turned on [ZenHub](http://zenhub.com) so it works :smile:
 * Create at least one Milestone that starts on the first day of lab and ends when the lab is due
-   * If you want to break the lab period into smaller time boxes and have multiple, smaller Milestones, that would be OK as well. If you do this, make sure you provide
-   reasonable start and end dates so one follows on from the
-   other, and the first starts at the beginning of the lab
-   and the last ends when the lab is due.
+  * If you want to break the lab period into smaller time boxes and have multiple, smaller
+    Milestones, that would be OK as well. If you do this, make sure you provide
+    reasonable start and end dates so one follows on from the
+    other, and the first starts at the beginning of the lab
+    and the last ends when the lab is due.
 
 Now you'll need to create several _epics_, one for each major feature described below.
 (See ["Working with Epics inside GitHub"](https://www.zenhub.com/blog/working-with-epics-in-github/)
 for info on creating and working with epics in ZenHub.) For each epic you should add the issues
 (tasks) that you think you'll need to complete to provide a full version of this feature.
-In general implementing each epic will have two parts:
 
-   * Implementing the server-side functionality, e.g., adding support for a new API endpoint 
-     to the Java Spark server code.
-   * Adding the client-side functionality that allows users to access that new server-side work.
-
-So at a minimum each epic should have two stories, one for the server-side work and one for
-the client-side work. Note that together these "slice the cake", so the epic provides a complete
-piece of functionality that goes from the client-side user interface to the server and back
-again. You can break that epic up into tasks that focus on different aspects of the problem,
-though, and that can be quite useful as you move to larger groups where some people can work
-on server support while other people are working in parallel on client-side interface design.
+>In future labs and the project, implementing most epics will have at least two parts that
+together "slice the cake":
+>
+>* Implementing the server-side functionality, e.g., adding support for a new API endpoint
+     to the Javalin server code.
+>* Adding the client-side functionality that allows users to access that new server-side work.
+>
+>Here, however, we've provided you with a fully functional client, so you won't do any
+work on the client side in this lab. So you won't really slice the cake here, but you should
+be aware that it will be important in the future for your stories to fully slice the cake.
 
 :warning: One thing you should **not** do is create separate tasks for things like unit tests
 or refactoring. Those activities should be "baked in" to your work flow, and not considered
@@ -116,8 +114,9 @@ the set of stories you expect to complete in this Milestone
 _increase_ rather than _decrease_, so being conservative in
 your initial planning is probably a Good Thing.
 
-   * You should add the stories that you _expect_ to do in the lab to your Milestone.
-   * You should move the stories you expect to do into the Backlog track, and move all the other stories into the Icebox track.
+* You should add the stories that you _expect_ to do in the lab to your Milestone.
+* You should move the stories you expect to do into the Backlog track, and move all the
+  other stories into the Icebox track.
 
 ### Using the board
 
@@ -169,8 +168,6 @@ collection of (randomly generated) user data, and making it
 available (with filtering) via the simple API you explored above.
 The client (JavaScript/HTML/CSS) demonstrates using simple forms
 that allow the user to make requests of the server and see the results.
-(The client-side is all pretty crude at this point; it'll get a lot
-shinier when we introduce Angular in the next lab.)
 
 Your goal in this lab is to use test-driven development (TDD) to
 extend the server's API to support serving 'to-do' data in such a way that it works with the provided client.
@@ -188,45 +185,44 @@ generated "to-do"s, each of which has:
 * A `body` that describes the task
 * A `category`
 
-Below are the various features we'd like to see you implement in this lab. You should 
-create an epic for each of the features listed below, adding at least two issues
-to each epic, one for the server-side functionality and one for the client-side support.
-                                                                           
+Below are the various features we'd like to see you implement in this lab. You should
+create an epic for each of the features listed below, adding at issues as appropriate.
+
 At the very least (necessary to get 85% of this part of the lab)
 you should implement (and create meaningful server-side tests for) the following features:
 
-   * List all the todos
-      * Implement an `api/todos` server-side endpoint, which returns all the to-dos
-   * Support limiting the number of todos that are displayed
-      * Implement an `api/todos?limit=7` API endpoint, which lets you specify the maximum
-        number of todos that the server returns.
-   * Support filtering todos by their status (either complete or incomplete)
-      * Implement an `api/todos?status=complete` (or `incomplete`) endpoint which lets you
-        filter the todos and only return the complete (or incomplete) ones
-      * Note that the "database" stores the status as a boolean, but the endpoint uses
-        "complete" and "incomplete". You'll have to implement the (simple) logic that
-        transforms the endpoint "language" into the database terminology.
-   * Support searching for todos whose _bodies_ contain a given string
-      * Implement an `api/todos?contains=banana` endpoint which lets you search for to-dos
-        whose _bodies_ contain (anywhere) the given string (in this case "banana").
+* List all the todos
+  * Implement an `api/todos` server-side endpoint, which returns all the to-dos
+* Support limiting the number of todos that are displayed
+  * Implement an `api/todos?limit=7` API endpoint, which lets you specify the maximum
+    number of todos that the server returns.
+* Support filtering todos by their status (either complete or incomplete)
+  * Implement an `api/todos?status=complete` (or `incomplete`) endpoint which lets you
+    filter the todos and only return the complete (or incomplete) ones
+  * Note that the "database" stores the status as a boolean, but the endpoint uses
+    "complete" and "incomplete". You'll have to implement the (simple) logic that
+    transforms the endpoint "language" into the database terminology.
+* Support searching for todos whose _bodies_ contain a given string
+  * Implement an `api/todos?contains=banana` endpoint which lets you search for to-dos
+    whose _bodies_ contain (anywhere) the given string (in this case "banana").
 
 To get full (100%) credit on this part of the lab you should
 implement (and create meaningful tests for) these additional features:
 
-   * Filter todos by owner
-      * Implement the endpoint `api/todos?owner=Blanche` which returns just the to-dos
+* Filter todos by owner
+  * Implement the endpoint `api/todos?owner=Blanche` which returns just the to-dos
 owned by Blanche
-   * Filter todos by category
-      * Implement the endpoint `api/todos?category=groceries` which returns just the to-dos
+* Filter todos by category
+  * Implement the endpoint `api/todos?category=groceries` which returns just the to-dos
 in the `groceries` category
-   * Allow for ordering/sorting of todos by a particular attribute
-      * Implement the endpoint `api/todos?orderBy=owner` (or `body`, `status`, or `category`)
-        which sorts the returned to-dos alphabetically by the specified field
+* Allow for ordering/sorting of todos by a particular attribute
+  * Implement the endpoint `api/todos?orderBy=owner` (or `body`, `status`, or `category`)
+    which sorts the returned to-dos alphabetically by the specified field
 
 For full credit you also need to support arbitrary combinations
 of these filters, e.g.,
 
-```
+```http
 api/todos?owner=Blanche&status=complete&limit=12&orderBy=category
 ```
 
@@ -242,18 +238,18 @@ Each of these if implemented properly should work in the provided client.
 Write up your answers to these questions in a Google Doc and turn that in via
 Canvas on the assignment for this lab.
 
-:bangbang: 
+:bangbang:
 
-   * [ ] __Make sure that everyone in your group has edit privileges on the document.__
-   * [ ] __Make sure that the link you turn in gives us at least comment privileges.__
-   * [ ] __Include the URL of the GitHub repository for your group at the top of the
-       GDoc. This will make it easier for us to figure out which team is "Snoozing Llamas".__
+* [ ] __Make sure that everyone in your group has edit privileges on the document.__
+* [ ] __Make sure that the link you turn in gives us at least comment privileges.__
+* [ ] __Include the URL of the GitHub repository for your group at the top of the
+   GDoc. This will make it easier for us to figure out which team is "Snoozing Llamas".__
   
 :bangbang: Make sure that your answers address the _purpose_ of
 these tools. Don't just tell us _what_ something does, indicate
 _why_ we'd want to have it.
 
-:question: *1* What is the purpose of `.gitignore`? 
+:question: *1* What is the purpose of `.gitignore`?
 ([Maybe search for `.gitignore`?](https://www.google.com/search?q=.gitignore))
 
 :question: *2* What role is Gradle playing in the
@@ -261,8 +257,8 @@ project, and what is the purpose of `build.gradle`?
 
 :question: *3* What is the purpose of Github Actions?
 
-:question: *4* Explain what a _route_ is. (You might look at the 
-[Java Spark documentation](http://sparkjava.com/documentation)
+:question: *4* Explain what an _endpoint_ is (also often called a _route_). (You might look at the
+[Javalin](https://javalin.io/documentation#endpoint-handlers)
 for some help here.)
 
 :question: *5* What is the purpose of `umm3601.Server` class?
@@ -270,14 +266,14 @@ What is the purpose of the `umm3601.user.UserController` class?
 Explain what happens when a user accesses each of the
 following URLs:
 
-- :question: The page `users`
-   - <http://localhost:4567/users>
-- :question: The page `api/users`
-   - <http://localhost:4567/api/users>
-- :question: The page `api/users?age=25`
-   - <http://localhost:4567/api/users?age=25>
-- :question: The page `api/users/588935f5de613130e931ffd5`
-   - <http://localhost:4567/api/users/588935f5de613130e931ffd5>
+* :question: The page `users`
+  * <http://localhost:4567/users>
+* :question: The page `api/users`
+  * <http://localhost:4567/api/users>
+* :question: The page `api/users?age=25`
+  * <http://localhost:4567/api/users?age=25>
+* :question: The page `api/users/588935f5de613130e931ffd5`
+  * <http://localhost:4567/api/users/588935f5de613130e931ffd5>
 
 :bangbang: If you have your project running (see the README), these links should
 actually work and generate results from your server.
@@ -285,13 +281,12 @@ actually work and generate results from your server.
 :question: *6* What are the contents of the `client` folder? What is the purpose of each of the HTML files there?
 
 :question: *7* Describe what happens when you filter users by
-age in the client? 
+age in the client?
 
-   * What information is read from the web page, and where is it read from?
-   * What request is sent to the server?
-   * What reply does the server send back to the client? How is that constructed?
-   * What is received by the client, and how/where is it displayed?
+* What information is read from the web page, and where is it read from?
+* What request is sent to the server?
+* What reply does the server send back to the client? How is that constructed?
+* What is received by the client, and how/where is it displayed?
 
 :question: *8* Where is the client-side JavaScript defined? Name the HTML file(s) that
-load and use is.
-
+load and use it.
