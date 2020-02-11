@@ -48,12 +48,12 @@ good to deliberately modify some of the tests and see what
 happens when they break. (But make sure you restore them to
 their passing state when you're done.)
 
-:warning: It's fairly complicated to test Java Spark 
-controller functions that 
-take a `Request` and `Response` object, update the `Response` and return
-a `JsonObject` (like `UserController.getUser`). So at the moment we
-have solid testing of `User` and `Database`, but no direct testing 
-of `UserController`.
+:warning: We provide very solid testing for everything except for
+the top level `Server` class, which is at the moment completely
+untested. We think we could use
+[functional testing in Javalin](https://javalin.io/tutorials/testing)
+to provide coverage of the `Server` class, but we haven't tried that
+yet. (You can, though. 😄)
 
 ## Exploring the client
 
@@ -174,12 +174,12 @@ that allow the user to make requests of the server and see the results.
 shinier when we introduce Angular in the next lab.)
 
 Your goal in this lab is to use test-driven development (TDD) to
-extend the server's API to support serving 'to-do' data, and extend
-the client-side code to allow users to access that new functionality.
+extend the server's API to support serving 'to-do' data in a way that
+is consistent with the client-side code you're given.
 We **do** want you to write JUnit tests for the server functionality you
-add, but you don't need to write tests for the client-side code since we
-haven't actually shown you how to do that. (We'll end up using some nice
-tools that integrate with Angular, but that's for the next lab.)
+add, but you don't need to worry about the JavaScript code or how one
+might test it. (We'll end up using some nice testing
+tools that integrate with Angular.)
 
 There is a file `data/todos.json` that has several hundred randomly
 generated "to-do"s, each of which has:
@@ -199,33 +199,18 @@ you should implement (and create meaningful server-side tests for) the following
 
    * List all the todos
       * Implement an `api/todos` server-side endpoint, which returns all the to-dos
-      * Implement a basic HTML/CSS/JS interface that allows users to request and see
-        all the todos.
-         * For this you'll have to Create a new HTML file called `todos.html` and a 
-           new Javascript file called `todos.js` and set those up so they look reasonable
-           and provide the desired functionality. See below for some tips on how to
-           get the client side work going.
-         * Note that there's some "one-time" work in setting up the `todos.html` and
-           `todos.js` files that you won't have to repeat on future epics, so you might
-           estimate this one a little higher than the later ones.
-         * In general the first feature of a given type is the most expensive because that's
-           where you have to figure out how things work and set up the infrastructure. You
-           should estimate accordingly.
    * Support limiting the number of todos that are displayed
       * Implement an `api/todos?limit=7` API endpoint, which lets you specify the maximum
         number of todos that the server returns.
-      * Add client-side support that lets users specify how many they want to have returned.
    * Support filtering todos by their status (either complete or incomplete)
       * Implement an `api/todos?status=complete` (or `incomplete`) endpoint which lets you
         filter the todos and only return the complete (or incomplete) ones
-      * Add client-side support for this
       * Note that the "database" stores the status as a boolean, but the endpoint uses
         "complete" and "incomplete". You'll have to implement the (simple) logic that
         transforms the endpoint "language" into the database terminology.
    * Support searching for todos whose _bodies_ contain a given string
       * Implement an `api/todos?contains=banana` endpoint which lets you search for to-dos
         whose _bodies_ contain (anywhere) the given string (in this case "banana").
-      * Add client-side support for this
 
 To get full (100%) credit on this part of the lab you should
 implement (and create meaningful tests for) these additional features:
@@ -233,15 +218,12 @@ implement (and create meaningful tests for) these additional features:
    * Filter todos by owner
       * Implement the endpoint `api/todos?owner=Blanche` which returns just the to-dos
 owned by Blanche
-      * Add client-side support
    * Filter todos by category
       * Implement the endpoint `api/todos?category=groceries` which returns just the to-dos
 in the `groceries` category
-      * Add client-side support
    * Allow for ordering/sorting of todos by a particular attribute
       * Implement the endpoint `api/todos?orderBy=owner` (or `body`, `status`, or `category`)
         which sorts the returned to-dos alphabetically by the specified field
-      * Add client-side support
 
 For full credit you also need to support arbitrary combinations
 of these filters, e.g.,
@@ -252,27 +234,6 @@ api/todos?owner=Blanche&status=complete&limit=12&orderBy=category
 
 which would return the first 12 completed to-dos owned by
 Blanche ordered by category.
-
-## Extending the client functionality
-
-Extending the server functionality is mostly a matter of understanding [how 
-Java Spark works](http://sparkjava.com/documentation) and following the examples
-we provided.
-
-For the client functionality, you'll need to:
-
-   * Create a new HTML file called `todos.html`
-   * Create a new Javascript file called `todos.js`
-      * > Make sure you create these files in the right locations! ;)
-   * Use basic HTML form elements and javascript to create a simple
-interface for making requests to your API. Along with the basic form 
-field demonstrated by the user example, you should try to make use of 
-things like dropdowns and radio buttons where appropriate. [The w3schools
-tutorial on HTML forms](https://www.w3schools.com/html/html_forms.asp)
-should provide some useful information.
-
-> You don't have to worry about doing something "nice" with the returned JSON;
-just dumping it onto the web page (like in the 'users' example) is fine.
 
 ---
 
